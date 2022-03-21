@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, Georgia, sans-serif;
+ 
+    
+}
+
+body {
+    display: grid;
+    max-width: 80%;
+    margin: auto;
+}
+#miniFigs p{
+    font-size: x-small;
+}
+#miniFigs{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    margin-bottom: 10rem;
+    gap: 0rem;
+}
+#miniFigs img, #figSets img{
+    height: 9rem;
+    width: 9rem;
+}
+#figSets{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+}
