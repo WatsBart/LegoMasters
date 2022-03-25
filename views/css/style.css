@@ -1,11 +1,6 @@
 * {
     box-sizing: border-box;
     font-family: Arial, Georgia, sans-serif;
- 
-    
-}
-
-section {
     
 }
 
@@ -26,16 +21,16 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     margin: auto;
-    margin-bottom: 10rem;
-    gap: 0rem;
+    gap: 4rem;
 }
 #miniFigs img, #figSets img{
-    height: 9rem;
-    width: 9rem;
+    height: 12rem;
+    width: 12rem;
 }
 #figSets{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     margin: auto;
+    gap: 4rem;
 }
