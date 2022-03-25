@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>informatie</title>
     <script src="scripts/java.js"></script>
-    <script type="module" src="scripts/dbscript.js"></script>
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -26,9 +26,12 @@
     <hr>
     <main>
         <section>
-            <article id="database">
-                <p>Hier komt de data van de database.</p>
-                <?php echo "hello"; ?>
+            <article>
+                <p><%= data[0].Id%></p>
+                <p><%= data[1].Id%></p>
+                <p><%= data[2].Id%></p>
+                <p><%= data[3].Id%></p>
+                <p><%= data[4].Id%></p>
             </article>
         </section>
         <section>
