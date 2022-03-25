@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>informatie</title>
     <script src="scripts/java.js"></script>
+    <script type="module" src="scripts/dbscript.js"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -27,9 +28,7 @@
         <section>
             <article id="database">
                 <p>Hier komt de data van de database.</p>
-                <% for (var i = 0;i < data.length;i++){ %>
-                    <div><%= data[i].Id %></div>
-                <% } %>
+                <?php echo "hello"; ?>
             </article>
         </section>
         <section>
