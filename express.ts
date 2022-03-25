@@ -28,7 +28,7 @@ db.query("select * from `EersteTabel`", (err:any,results:any) => {
     db_data = results;
 })
 
-app.get('/',(req:any,res:any)=>{
+app.get('/index.html',(req:any,res:any)=>{
     res.render('index')
 });
 
