@@ -32,6 +32,10 @@ app.get('/',(req:any,res:any)=>{
     res.render('index')
 });
 
+app.get('/index.html',(req:any,res:any)=>{
+    res.render('index');
+})
+
 app.get('/informatie.html',(req:any,res:any)=>{
     res.render('informatie',{data:db_data});
 })
