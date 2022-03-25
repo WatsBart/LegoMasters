@@ -36,7 +36,7 @@ app.get('/informatie.html',(req:any,res:any)=>{
     res.render('informatie',{data:db_data});
 })
 
-app.get('contact.html',(req:any,res:any)=>{
+app.get('/contact.html',(req:any,res:any)=>{
     res.render('contact');
 })
 
