@@ -7,5 +7,23 @@
   },
   "devDependencies": {
     "@types/node": "^17.0.23"
-  }
+  },
+  "name": "LegoMasters",
+  "description": "Een lego project voor het vak IT project",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WatsBart/LegoMasters.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WatsBart/LegoMasters/issues"
+  },
+  "homepage": "https://github.com/WatsBart/LegoMasters#readme"
 }
