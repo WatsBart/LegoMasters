@@ -9,15 +9,15 @@ app.set('view engine', 'ejs');
 app.set('port', 3000);
 app.use(express.static('views'));
 
-/*
+
 var db_data: any;
 var figdata: any;
 
 var db = mysql.createConnection({
-    host: 'sql11.freesqldatabase.com',
-    user: 'sql11481004',
-    password: 'PSkdDGHXuh',
-    database: 'sql11481004'
+    host: 'db4free.net',
+    user: 'yaba_it_project',
+    password: 'yaba_it_project',
+    database: 'yaba_it_project'
 });
 
 
@@ -36,7 +36,7 @@ db.query("select * from `EersteTabel`", (err: any, results: any) => {
     }
     console.log(eersteId);
     let fig = axios.get(`https://rebrickable.com/api/v3/lego/minifigs/fig-${eersteId}/?key=3ef36135e7fda4370a11fd6191fef2af`).
-        then(function (response:any) {
+        then(function (response: any) {
             if (response.ok) {
                 console.log(response.json);
                 return response.json();
@@ -48,9 +48,9 @@ db.query("select * from `EersteTabel`", (err: any, results: any) => {
     console.log(fig);
     figdata = fig;
 })
-*/
 
-app.get('/index.html',(req:any,res:any)=>{
+
+app.get('/index.html', (req: any, res: any) => {
     res.render('index')
 });
 
