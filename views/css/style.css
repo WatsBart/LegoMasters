@@ -1,12 +1,16 @@
 * {
     box-sizing: border-box;
     font-family: Arial, Georgia, sans-serif;
+<<<<<<< HEAD
  
     
 }
 
 /* section {
     height: 30vh;
+=======
+    
+>>>>>>> d3501764efefced8a49c435f9d0c786075b1235e
 }
 
 article{
@@ -26,16 +30,16 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     margin: auto;
-    margin-bottom: 10rem;
-    gap: 0rem;
+    gap: 4rem;
 }
 #miniFigs img, #figSets img{
-    height: 9rem;
-    width: 9rem;
+    height: 12rem;
+    width: 12rem;
 }
 #figSets{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     margin: auto;
+    gap: 4rem;
 }
