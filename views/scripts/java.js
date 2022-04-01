@@ -11,7 +11,7 @@ then(function (response) {
         let miniFigs = response.results;
         let figList = [];
 
-    for (let i = 0; i < 10; i++) {git 
+    for (let i = 0; i < 10; i++) {
         figList[i] = miniFigs[Math.floor(Math.random()*miniFigs.length)];
     }
     console.log(figList);

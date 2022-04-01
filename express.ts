@@ -9,6 +9,7 @@ app.set('view engine', 'ejs');
 app.set('port', 3000);
 app.use(express.static('views'));
 
+/*
 var db_data: any;
 var figdata: any;
 
@@ -18,6 +19,7 @@ var db = mysql.createConnection({
     password: 'PSkdDGHXuh',
     database: 'sql11481004'
 });
+
 
 db.connect((err: any) => {
     if (err) throw err;
@@ -46,6 +48,7 @@ db.query("select * from `EersteTabel`", (err: any, results: any) => {
     console.log(fig);
     figdata = fig;
 })
+*/
 
 app.get('/index.html',(req:any,res:any)=>{
     res.render('index')
@@ -56,12 +59,13 @@ app.get('/index.html', (req: any, res: any) => {
 })
 
 app.get('/informatie.html', (req: any, res: any) => {
-    res.render('informatie', { data: db_data });
+    res.render('informatie'/*, { data: db_data }*/);
 })
 
 app.get('/contact.html', (req: any, res: any) => {
     res.render('contact');
 })
+
 
 app.listen(app.get('port'),
     () => console.log('[server] http://localhost:' + app.get('port')));
