@@ -35,38 +35,61 @@ body {
     gap: 4rem;
 }
 
-#home{
-    background-color: rgb(0, 255, 8);
+#home, #legomasters{
+    background-color: rgba(152, 98, 5, 0.483);
     margin: auto;
 }
-#home p{
-    color: black;
-}
 #home h1{
-    color: rgb(14, 51, 217);
+    color: chartreuse;
+    font-size: 3rem;
+}
+#titel{
+    text-align: center;
+    text-decoration: dashed underline;
+    text-decoration-color: red;
+}
+#yellow{
+    color: yellow;
+}
+#blue{
+    color: aqua;
 }
 
-#home nav ul{
+#home section img{
+    height: 15rem;
+    border-radius: 5rem;
+    border: 0.2rem dotted blueviolet;
+}
+#home section a {
+    font-size: xx-small;
+}
+#home section {
     display: flex;
-    list-style: none;
-    border: solid 0.5rem blue;
+    gap: 5rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#home section h3{
+    text-decoration: underline;
+    text-align: center;
 }
 
-#home li{
-    padding-right: 2rem;
-}
-#home nav img{
+#legomasters nav img{
     height: 8rem;
     border-bottom-left-radius: 4rem;
     border-bottom-right-radius: 4rem;
-    border: solid 0.2rem blue;
 }
-
-#logo{
+#legomasters nav{
     display: flex;
-    gap: 10rem;
+    gap: 30rem;
 }
-#titel{
+#legomasters h1{
+    color: rgb(11, 156, 11);
+    text-decoration: underline;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 3rem;
 }
-
+#legomasters section img{
+    border-radius: 3rem;
+    border: 0.2rem dotted blueviolet;
+}
