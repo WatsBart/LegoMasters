@@ -13,29 +13,26 @@ body {
     max-width: 80%;
     margin: auto;
 }
-#miniFigs p{
-    font-size: x-small;
-}
 #miniFigs{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     margin: auto;
-    gap: 4rem;
+    gap: 0rem;
 }
 #miniFigs img, #figSets img{
-    height: 12rem;
-    width: 12rem;
+    height: 10rem;
+    width: 10rem;
 }
 #figSets{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     margin: auto;
-    gap: 4rem;
+    gap: 0rem;
 }
 
-#home, #legomasters{
+#home, #legomasters, #bekijken, #blacklist, #ordenen{
     background-color: rgba(152, 98, 5, 0.483);
     margin: auto;
 }
@@ -72,18 +69,24 @@ body {
 #home section h3{
     text-decoration: underline;
     text-align: center;
+    font-size: 1.3rem;
+    color: black;
 }
 
-#legomasters nav img{
+#home section h3{
+    font-size: 1.3rem;
+}
+
+.nav img{
     height: 8rem;
     border-bottom-left-radius: 4rem;
     border-bottom-right-radius: 4rem;
 }
-#legomasters nav{
+.nav{
     display: flex;
     gap: 30rem;
 }
-#legomasters h1{
+.legotitel{
     color: rgb(11, 156, 11);
     text-decoration: underline;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -92,4 +95,34 @@ body {
 #legomasters section img{
     border-radius: 3rem;
     border: 0.2rem dotted blueviolet;
+}
+
+.naam{
+    max-width: 5rem;
+    text-align: justify;
+    text-overflow: ellipsis;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1rem;
+    margin: auto;
+    color: blueviolet;
+}
+/*bekijken*/
+
+#bekijken table{
+    margin: auto;
+
+    width: 90rem;
+}
+#bekijken th{
+    border: 0.2rem solid blueviolet;
+    padding: 2rem;
+    text-transform: uppercase;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.5rem;
+    border-top-left-radius: 3rem; 
+    border-top-right-radius: 3rem;
+}
+#bekijken td{
+    border: 0.2rem solid blueviolet;
+    padding: 6rem;
 }

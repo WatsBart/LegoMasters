@@ -1,11 +1,13 @@
 {
   "dependencies": {
     "axios": "^0.26.1",
+    "chalk-animation": "^2.0.2",
     "ejs": "^3.1.6",
     "express": "^4.17.3",
     "mysql": "^2.18.1"
   },
   "devDependencies": {
+    "@types/chalk-animation": "^1.6.1",
     "@types/node": "^17.0.23"
   },
   "name": "legomasters",

@@ -1,4 +1,4 @@
-//code afkomstig van het vak Webprogrammeren
+//code afkomstig van het vak Webontwikkeling
 
 const express = require('express');
 const app = express();
@@ -50,7 +50,7 @@ db.query("select * from `EersteTabel`", (err: any, results: any) => {
 })
 
 
-app.get('/index.html', (req: any, res: any) => {
+app.get('/', (req: any, res: any) => {
     res.render('index')
 });
 
@@ -59,13 +59,21 @@ app.get('/index.html', (req: any, res: any) => {
 })
 
 app.get('/informatie.html', (req: any, res: any) => {
-    res.render('informatie'/*, { data: db_data }*/);
+    res.render('informatie');
 })
 
-app.get('/contact.html', (req: any, res: any) => {
-    res.render('contact');
+app.get('/bekijken.html', (req: any, res: any) => {
+    res.render('bekijken');
 })
 
+app.get('/blacklist.html', (req: any, res: any) => {
+    res.render('blacklist');
+})
+
+app.get('/ordenen.html', (req: any, res: any) => {
+    res.render('ordenen');
+})
 
 app.listen(app.get('port'),
     () => console.log('[server] http://localhost:' + app.get('port')));
+    

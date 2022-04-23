@@ -26,7 +26,7 @@ then(function (response) {
     let miniFigHtml = document.getElementById("miniFigs");
     for (let i = 0; i<figList.length;i++) {
         miniFigHtml.insertAdjacentHTML("beforeend", `<img src="${figList[i].set_img_url}">`);
-        //miniFigHtml.insertAdjacentHTML("beforeend", `<p>${figList[i].name}</p>`);
+        miniFigHtml.insertAdjacentHTML("beforeend", `<p class="naam">${figList[i].name}</p>`);
     }
 })
 
@@ -59,6 +59,6 @@ then(function (response) {
     let figSetHtml = document.getElementById("figSets");
     for (let i = 0; i<setList.length;i++) {
         figSetHtml.insertAdjacentHTML("beforeend", `<img src="${setList[i].set_img_url}">`);
-        //figSetHtml.insertAdjacentHTML("beforeend", `<p>${setList[i].name}</p>`);
+        figSetHtml.insertAdjacentHTML("beforeend", `<p class="naam">${setList[i].name}</p>`);
     }
 })
