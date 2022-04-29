@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bekijken</title>
+    <script src="scripts/java.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/reset.css">
 </head>
@@ -15,7 +16,7 @@
             <h1 class="legotitel">Geordende minifigs</h1>
         </nav>
     </header>
-    <main>
+    <main id="bekijkenTabel">
         <table>
             <tr>
                 <th scope="col">Afbeelding minifig</th>
@@ -23,7 +24,12 @@
                 <th scope="col">Afbeelding set</th>
                 <th scope="col">Code set</th>
             </tr>
-            <tr>
+            
+            <% console.log( "data:" )%>
+            <% console.log( dataBekijken )%>
+            <% console.log( dataBekijken.set_img_url )%>
+            <%- '<img src="' + dataBekijken.set_img_url + '">' %>
+            <!-- <tr>
                 <td></td>
                 <td></td>
                 <td></td>
@@ -41,7 +47,7 @@
                 <td></td>
                 <td></td>
             </tr>
-        </table>
+        </table> -->
     </main>
 </body>
 </html>
