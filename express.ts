@@ -26,54 +26,52 @@ db.connect((err: any) => {
     console.log('Database is connected successfully');
 });
 
-db.query("select * from `EersteTabel`", (err: any, results: any) => {
-    if (err) console.log("can't connect");
-    db_data = results;
-    let eersteId = db_data[0].Id;
-    eersteId = eersteId.toString();
-    for (var i = eersteId.length; i < 6; i++) {
-        eersteId = "0" + eersteId;
-    }
-    console.log(eersteId);
-    let fig = axios.get(`https://rebrickable.com/api/v3/lego/minifigs/fig-${eersteId}/?key=3ef36135e7fda4370a11fd6191fef2af`).
-        then(function (response: any) {
-            if (response.ok) {
-                console.log(response.json);
-                return response.json();
-            } else {
-                console.log("rejected");
-                return Promise.reject(response.status);
-            }
-        })
-    console.log(fig);
-    figdata = fig;
-})
-*/
+
+
 
 app.get('/', (req: any, res: any) => {
     res.render('index')
 });
 
-app.get('/index.html', (req: any, res: any) => {
+app.get('/index', (req: any, res: any) => {
     res.render('index');
 })
 
-app.get('/informatie.html', (req: any, res: any) => {
+app.get('/informatie', (req: any, res: any) => {
     res.render('informatie');
 })
 
-app.get('/bekijken.html', (req: any, res: any) => {
-    res.render('bekijken');
+app.get('/bekijken', (req: any, res: any) => {
+    db.query("select * from `Bekijken`", (err: any, results: any) => {
+        if (err) console.log("can't connect");
+        db_data = results;
+        let eersteId = db_data[0].fig_id;
+        eersteId = eersteId.toString();
+        for (var i = eersteId.length; i < 6; i++) {
+            eersteId = "0" + eersteId;
+        }
+        console.log(eersteId);
+        let fig = axios.get(`https://rebrickable.com/api/v3/lego/minifigs/fig-${eersteId}/?key=3ef36135e7fda4370a11fd6191fef2af`).
+            then(function (response: any) {
+                res.render('bekijken',{dataBekijken:response.data});
+                return response.data;
+            })
+        console.log("fig");
+        console.log(fig);
+        figdata = fig;
+        
+    })
+    
 })
 
-app.get('/blacklist.html', (req: any, res: any) => {
+app.get('/blacklist', (req: any, res: any) => {
     res.render('blacklist');
 })
 
-app.get('/ordenen.html', (req: any, res: any) => {
+app.get('/ordenen', (req: any, res: any) => {
     res.render('ordenen');
 })
 
 app.listen(app.get('port'),
     () => console.log('[server] http://localhost:' + app.get('port')));
-    
+    */
