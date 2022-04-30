@@ -31,40 +31,82 @@ body {
     margin: auto;
     gap: 0rem;
 }
+header{
+    background-color: brown;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
 
 #home, #legomasters, #bekijken, #blacklist, #ordenen{
     background-color: rgba(152, 98, 5, 0.483);
     margin: auto;
 }
-#home h1{
-    color: chartreuse;
-    font-size: 3rem;
-}
-#titel{
+footer{
+    background-color: brown;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
     text-align: center;
-    text-decoration: dashed underline;
-    text-decoration-color: red;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif
 }
-#yellow{
-    color: yellow;
+
+.titel{
+    color: white;
+    text-align: center;
+    font-size: 2.5rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-#blue{
-    color: aqua;
+.deelnemen {
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: red;
+    border-radius: 5rem;
+}
+
+.container:hover .overlay {
+    opacity: 1;
+}
+.container{
+    position: relative;
 }
 
 #home section img{
     height: 15rem;
     border-radius: 5rem;
-    border: 0.2rem dotted blueviolet;
+    border: 0.2rem dotted red;
+    width: 250px;
+    height: 250px;
+    object-fit: fill;
+    display: block;
 }
 #home section a {
     font-size: xx-small;
 }
+
 #home section {
     display: flex;
     gap: 5rem;
     flex-direction: row;
     flex-wrap: wrap;
+    margin-left: 10rem;
 }
 #home section h3{
     text-decoration: underline;
@@ -73,28 +115,23 @@ body {
     color: black;
 }
 
-#home section h3{
-    font-size: 1.3rem;
+#home main{
+    height: 47.35rem;
 }
 
-.nav img{
-    height: 8rem;
-    border-bottom-left-radius: 4rem;
-    border-bottom-right-radius: 4rem;
+header img{
+    height: 80px;
+    border-radius: 50%;
+    padding: .5rem;
 }
 .nav{
     display: flex;
-    gap: 30rem;
+    gap: 30%;
 }
-.legotitel{
-    color: rgb(11, 156, 11);
-    text-decoration: underline;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 3rem;
-}
+
 #legomasters section img{
     border-radius: 3rem;
-    border: 0.2rem dotted blueviolet;
+    border: 0.2rem dotted red;
 }
 
 .naam{
@@ -104,7 +141,7 @@ body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 1rem;
     margin: auto;
-    color: blueviolet;
+    color: black;
 }
 /*bekijken*/
 

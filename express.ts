@@ -20,7 +20,7 @@ var db = mysql.createConnection({
     database: 'yaba_it_project'
 });
 
-
+/*
 db.connect((err: any) => {
     if (err) throw err;
     console.log('Database is connected successfully');
@@ -48,7 +48,7 @@ db.query("select * from `EersteTabel`", (err: any, results: any) => {
     console.log(fig);
     figdata = fig;
 })
-
+*/
 
 app.get('/', (req: any, res: any) => {
     res.render('index')
