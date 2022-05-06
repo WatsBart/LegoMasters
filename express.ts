@@ -68,5 +68,15 @@ app.get('/ordenen', (req: any, res: any) => {
     res.render('ordenen');
 })
 
+app.get('/databaseInsert', (req: any, res: any) => {
+    console.log(req.query);
+    console.log("get request aanvaard");
+    let waarden = req.query;
+    db.query(`insert into Bekijken (user_id, fig_id, set_id) values(1, "${req.query.figId}", "${req.query.setId}");`, (err: any, results: any) => {
+        if (err) console.log(err);    
+    })
+})
+
 app.listen(app.get('port'),
     () => console.log('[server] http://localhost:' + app.get('port')));
+

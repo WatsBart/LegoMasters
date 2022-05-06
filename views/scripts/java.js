@@ -1,19 +1,4 @@
 //minifigs
-const mysql = require('mysql');
-
-var db = mysql.createConnection({
-    host: 'db4free.net',
-    user: 'yaba_it_project',
-    password: 'yaba_it_project',
-    database: 'yaba_it_project'
-});
-
-
-db.connect((err) => {
-    if (err) throw err;
-    console.log('Database is connected successfully');
-});
-
 console.log("java");
 let id = "fig-000051";
 fetch(`https://rebrickable.com/api/v3/lego/minifigs/${id}/?key=3ef36135e7fda4370a11fd6191fef2af`).
@@ -45,7 +30,7 @@ then(function (response) {
         
         let miniFigHtml = document.getElementById("miniFigs");
         miniFigHtml.insertAdjacentHTML("beforeend", `<td><img src="${miniFigs.set_img_url}"></td>`);
-        miniFigHtml.insertAdjacentHTML("beforeend", `<td><p class="naam">${miniFigs.name}</p></td>`);
+        miniFigHtml.insertAdjacentHTML("beforeend", `<td><p class="naam">${miniFigs.name}</p><p id="figId">${miniFigs.set_num}</p></td>`);
 })
 
 fetch(`https://rebrickable.com/api/v3/lego/minifigs/${id}/sets/?key=3ef36135e7fda4370a11fd6191fef2af`)
@@ -75,18 +60,34 @@ fetch(`https://rebrickable.com/api/v3/lego/minifigs/${id}/sets/?key=3ef36135e7fd
         }
 })
 
+//code afkomstig van w3schools
+
+// function showCustomer(str) {
+
+// }
+
 const ordenen = (id) => {
     let ordenenHtml = document.getElementById(id);
-    let url = ordenenHtml.innerHTML;
-    console.log(url);
-    console.log(id);
-    for (let teller = 1; teller<id.length; teller++) {
-        dezeId = " - " + id[teller]; 
+    let setId = ordenenHtml.innerHTML;
+    
+    let ordenenHtmlFig = document.getElementById("figId");
+    let figId = ordenenHtmlFig.innerHTML;
+    // console.log(url);
+    // console.log(id);
+    // for (let teller = 1; teller<id.length; teller++) {
+    //     dezeId = " - " + id[teller]; 
+    // }
+    // db.query("select * from `Bekijken`", (err, results) => {
+    //     if (err) console.log("can't connect");
+    //     console.log(results);
+    // })
+
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        console.log('hallo');
     }
-    db.query("select * from `Bekijken`", (err, results) => {
-        if (err) console.log("can't connect");
-        console.log(results);
-    })
+    xhttp.open("GET", "databaseInsert?figId="+figId + "&setId="+setId);
+    xhttp.send();
 
 }
 
