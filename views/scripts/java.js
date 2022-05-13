@@ -91,6 +91,12 @@ const ordenen = (id) => {
 
 }
 
+const blacklist = () => {
+    let htmlFig = document.getElementById("figId");
+    let figId = htmlFig.innerHTML;
+    console.log("blacklist");
+}
+
 // //sets
 // fetch(`https://rebrickable.com/api/v3/lego/sets/?key=3ef36135e7fda4370a11fd6191fef2af`).
 // then(function (response) {
