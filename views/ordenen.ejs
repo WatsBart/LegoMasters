@@ -17,20 +17,17 @@
         </nav>
     </header>
     <main>
-        <table>
+        <div id="userinput">
+        <input type="number">
+        <input type="submit">
+    </div>
+        <table visibility="hidden">
             <thead>
                 <tr id="miniFigs"></tr>
             </thead>
             <tbody>
                 <tr id="figSets"></tr>
-                <tr id="blackList">
-                    <td>
-                        <input name="reden" id="reden" type="text">
-                    </td>
-                    <td>
-                        <input type="button" onclick=blacklist()>
-                    </td>
-                </tr>
+                <tr id="blackList"></tr>
             </tbody>
         </table>
     </main>
