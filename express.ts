@@ -4,50 +4,30 @@ const express = require('express');
 const app = express();
 const ejs = require('ejs');
 const axios = require('axios');
-const mysql = require('mysql');
+
 app.set('view engine', 'ejs');
 app.set('port', 3000);
 app.use(express.static('views'));
 
 
-var db_data: any;
-var figdata: any;
-
-var db = mysql.createConnection({
-    host: 'db4free.net',
-    user: 'yaba_it_project',
-    password: 'yaba_it_project',
-    database: 'yaba_it_project'
-});
-
-
-db.connect((err: any) => {
-    if (err) throw err;
-    console.log('Database is connected successfully');
-});
-
-db.query("select * from `EersteTabel`", (err: any, results: any) => {
-    if (err) console.log("can't connect");
-    db_data = results;
-    let eersteId = db_data[0].Id;
-    eersteId = eersteId.toString();
-    for (var i = eersteId.length; i < 6; i++) {
-        eersteId = "0" + eersteId;
+const {MongoClient} = require('mongodb');
+const uri = "mongodb+srv://yaba:yabaitproject@cluster0.bj6tu.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+const client = new MongoClient(uri, { useUnifiedTopology: true });
+let Main = async () => {
+    try {
+        // Connect to the MongoDB cluster
+        await client.connect();
+ 
+        // Make the appropriate DB calls
+        //...
+ 
+    } catch (e) {
+        console.error(e);
+    } finally {
+        await client.close();
     }
-    console.log(eersteId);
-    let fig = axios.get(`https://rebrickable.com/api/v3/lego/minifigs/fig-${eersteId}/?key=3ef36135e7fda4370a11fd6191fef2af`).
-        then(function (response: any) {
-            if (response.ok) {
-                console.log(response.json);
-                return response.json();
-            } else {
-                console.log("rejected");
-                return Promise.reject(response.status);
-            }
-        })
-    console.log(fig);
-    figdata = fig;
-})
+}
+Main();
 
 
 app.get('/index.html', (req: any, res: any) => {
@@ -69,3 +49,5 @@ app.get('/contact.html', (req: any, res: any) => {
 
 app.listen(app.get('port'),
     () => console.log('[server] http://localhost:' + app.get('port')));
+
+
