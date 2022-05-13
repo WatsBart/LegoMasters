@@ -52,15 +52,10 @@ const tonen = () => {
     console.log("tonen");
     let random = Math.floor(Math.random() * 100); //10999
     console.log(random);
-    let id = random.toString();
-    for (var i = id.length; i < 6; i++) {
-        id = "0" + id;
-    }
     let miniFigHtml = document.getElementById("miniFigs");
     miniFigHtml.insertAdjacentHTML("beforeend", `<td><img src="${miniFigs[random].set_img_url}"></td>`);
     miniFigHtml.insertAdjacentHTML("beforeend", `<td><p class="naam">${miniFigs[random].name}</p><p id="figId">${miniFigs[random].set_num}</p></td>`);
-
-fetch(`https://rebrickable.com/api/v3/lego/minifigs/fig-${id}/sets/?key=3ef36135e7fda4370a11fd6191fef2af`)
+fetch(`https://rebrickable.com/api/v3/lego/minifigs/${miniFigs[random].set_num}/sets/?key=3ef36135e7fda4370a11fd6191fef2af`)
 .then(function (response) {
     return response.json();
     if (response.ok) {
