@@ -8,6 +8,8 @@ const mysql = require('mysql');
 app.set('view engine', 'ejs');
 app.set('port', 3000);
 app.use(express.static('views'));
+app.use(express.json({limit: '1mb'}));
+app.use(express.urlencoded({extended:true}));
 
 
 var db_data: any;
@@ -66,6 +68,13 @@ app.get('/blacklist', (req: any, res: any) => {
 
 app.get('/ordenen', (req: any, res: any) => {
     res.render('ordenen');
+})
+
+app.post('/ordenen', (req:any, res:any) => {
+    console.log("post success");
+    console.log(req.body);
+    console.log(req.query);
+    console.log(req.params);
 })
 
 app.get('/databaseInsert', (req: any, res: any) => {

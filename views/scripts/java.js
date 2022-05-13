@@ -99,15 +99,23 @@ const blacklistFig = () => {
     let htmlFig = document.getElementById("figId");
     let figId = htmlFig.innerHTML;
     let htmlReden = document.getElementById("reden");
-    let reden = htmlReden.innerHTML;
-    const xhttp = new XMLHttpRequest();
+    let reden = htmlReden.value.toString();
+
+    console.log(htmlReden.value);
+    console.log(reden.toString());
+    console.log("blacklistfig");
+    
     var data = new FormData();
     data.append("id",figId);
     data.append("reden",reden);
+    var params = 'id=' + figId + "&reden=" + reden;
+    const xhttp = new XMLHttpRequest();
+    xhttp.open("POST","ordenen",true);
+    xhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
     xhttp.onload = function() {
-
+        console.log("Toegevoegd aan blacklist");
     }
-    xhttp.open("POST","ordenen");
+    xhttp.send(params);
 }
 
 // //sets
