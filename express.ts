@@ -20,7 +20,7 @@ var db = mysql.createConnection({
     database: 'yaba_it_project'
 });
 
-/*
+
 db.connect((err: any) => {
     if (err) throw err;
     console.log('Database is connected successfully');
@@ -74,4 +74,4 @@ app.get('/ordenen', (req: any, res: any) => {
 
 app.listen(app.get('port'),
     () => console.log('[server] http://localhost:' + app.get('port')));
-    */
+    

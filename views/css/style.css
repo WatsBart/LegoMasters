@@ -9,10 +9,19 @@ article{
 }
 
 body {
-    display: grid;
     max-width: 80%;
     margin: auto;
-}
+    display: grid;
+    grid-template-areas:
+      'header'
+      'main'  
+      'footer'; 
+  }
+
+  header {grid-area: header;}
+  main {grid-area: main;}
+  footer {grid-area: footer;}
+
 #miniFigs{
     display: flex;
     flex-direction: row;
@@ -47,7 +56,7 @@ footer{
     border-top-right-radius: 50%;
     text-align: center;
     color: white;
-    font-family: Verdana, Geneva, Tahoma, sans-serif
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .titel{
@@ -116,7 +125,7 @@ footer{
 }
 
 #home main{
-    height: 47.35rem;
+    height: 47rem;
 }
 
 header img{
