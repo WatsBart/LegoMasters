@@ -1,15 +1,20 @@
 //minifigs
 console.log("java");
 
-let random = Math.floor(Math.random() * 10999);
-console.log(random);
-let id = random.toString();
-for (var i = id.length; i < 6; i++) {
-    id = "0" + id;
-}
-console.log(id);
+let minifigs;
 
-fetch(`https://rebrickable.com/api/v3/lego/minifigs/fig-${id}/?key=3ef36135e7fda4370a11fd6191fef2af`).
+const aantalKiezenHtml = document.getElementById("aantal");
+aantalKiezenHtml.insertAdjacentHTML("beforeend", '<input type="number" name="aantal" id="aaantalKiezen"> <button type="button" onclick=aantalKiezen()>Submit</button>');
+
+// let random = Math.floor(Math.random() * 10999);
+// console.log(random);
+// let id = random.toString();
+// for (var i = id.length; i < 6; i++) {
+//     id = "0" + id;
+// }
+// console.log(id);
+
+fetch(`https://rebrickable.com/api/v3/lego/minifigs/?key=3ef36135e7fda4370a11fd6191fef2af`).
 then(function (response) {
     return response.json();
     if (response.ok) {
@@ -19,7 +24,7 @@ then(function (response) {
 }).then(function (response) {
         console.log(response);
         console.log("fig");
-        let miniFigs = response;
+        miniFigs = response.results;
         console.log(miniFigs);
         // let figList = [];
 
@@ -34,16 +39,29 @@ then(function (response) {
         // for (let i = 0; i < 6; i++) {
         //     figList[i] = miniFigs[numberarray[i]-1];
         // }
-
-        
-        let miniFigHtml = document.getElementById("miniFigs");
-        miniFigHtml.insertAdjacentHTML("beforeend", `<td><img src="${miniFigs.set_img_url}"></td>`);
-        miniFigHtml.insertAdjacentHTML("beforeend", `<td><p class="naam">${miniFigs.name}</p><p id="figId">${miniFigs.set_num}</p></td>`);
 })
+
+
+//code afkomstig van w3schools
+
+// function showCustomer(str) {
+
+// }
+
+const tonen = () => {
+    console.log("tonen");
+    let random = Math.floor(Math.random() * 100); //10999
+    console.log(random);
+    let id = random.toString();
+    for (var i = id.length; i < 6; i++) {
+        id = "0" + id;
+    }
+    let miniFigHtml = document.getElementById("miniFigs");
+    miniFigHtml.insertAdjacentHTML("beforeend", `<td><img src="${miniFigs[random].set_img_url}"></td>`);
+    miniFigHtml.insertAdjacentHTML("beforeend", `<td><p class="naam">${miniFigs[random].name}</p><p id="figId">${miniFigs[random].set_num}</p></td>`);
 
 fetch(`https://rebrickable.com/api/v3/lego/minifigs/fig-${id}/sets/?key=3ef36135e7fda4370a11fd6191fef2af`)
 .then(function (response) {
-    
     return response.json();
     if (response.ok) {
     }else {
@@ -68,13 +86,17 @@ fetch(`https://rebrickable.com/api/v3/lego/minifigs/fig-${id}/sets/?key=3ef36135
         }
 })
 
-//code afkomstig van w3schools
+}
 
-// function showCustomer(str) {
+const aantalKiezen = () => {
+    console.log("aantal kiezen");
+    document.getElementById("aantal").innerHTML = "";
+    tonen();
+}
 
-// }
 
 const ordenen = (id) => {
+    console.log("ordenen");
     let ordenenHtml = document.getElementById(id);
     let setId = ordenenHtml.innerHTML;
     
@@ -96,6 +118,9 @@ const ordenen = (id) => {
     }
     xhttp.open("GET", "databaseInsert?figId="+figId + "&setId="+setId);
     xhttp.send();
+    document.getElementById("miniFigs").innerHTML = "";
+    document.getElementById("figSets").innerHTML = "";
+    
 
 }
 
