@@ -14,7 +14,6 @@ then(function (response) {
         let miniFigs = response;
         console.log(miniFigs);
         // let figList = [];
-
         // let numberarray = [];
         // for(let i = 0; i < 6; i++){
         //     randomgetal = Math.floor(Math.random()*miniFigs.length);
@@ -31,6 +30,9 @@ then(function (response) {
         let miniFigHtml = document.getElementById("miniFigs");
         miniFigHtml.insertAdjacentHTML("beforeend", `<td><img src="${miniFigs.set_img_url}"></td>`);
         miniFigHtml.insertAdjacentHTML("beforeend", `<td><p class="naam">${miniFigs.name}</p><p id="figId">${miniFigs.set_num}</p></td>`);
+        
+        let blacklistHtml = document.getElementById("blackList");
+        blacklistHtml.insertAdjacentHTML("beforeend", `<td><input name="reden" id="reden" type="text"></td><td><input type="button" onclick=blacklistFig()></td>`);
 })
 
 fetch(`https://rebrickable.com/api/v3/lego/minifigs/${id}/sets/?key=3ef36135e7fda4370a11fd6191fef2af`)
@@ -58,6 +60,8 @@ fetch(`https://rebrickable.com/api/v3/lego/minifigs/${id}/sets/?key=3ef36135e7fd
         setsHtml.insertAdjacentHTML("beforeend", `<td><button onclick=ordenen(${i})><img src="${sets[i].set_img_url}></button></td`);
         setsHtml.insertAdjacentHTML("beforeend", `<td><p class="naam">${sets[i].name}</p><p id="${i}">${sets[i].set_num}</p></td>`);
         }
+
+
 })
 
 //code afkomstig van w3schools
@@ -89,6 +93,21 @@ const ordenen = (id) => {
     xhttp.open("GET", "databaseInsert?figId="+figId + "&setId="+setId);
     xhttp.send();
 
+}
+
+const blacklistFig = () => {
+    let htmlFig = document.getElementById("figId");
+    let figId = htmlFig.innerHTML;
+    let htmlReden = document.getElementById("reden");
+    let reden = htmlReden.innerHTML;
+    const xhttp = new XMLHttpRequest();
+    var data = new FormData();
+    data.append("id",figId);
+    data.append("reden",reden);
+    xhttp.onload = function() {
+
+    }
+    xhttp.open("POST","ordenen");
 }
 
 // //sets
