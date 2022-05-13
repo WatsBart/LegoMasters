@@ -1,7 +1,15 @@
 //minifigs
 console.log("java");
-let id = "fig-000051";
-fetch(`https://rebrickable.com/api/v3/lego/minifigs/${id}/?key=3ef36135e7fda4370a11fd6191fef2af`).
+
+let random = Math.floor(Math.random() * 10999);
+console.log(random);
+let id = random.toString();
+for (var i = id.length; i < 6; i++) {
+    id = "0" + id;
+}
+console.log(id);
+
+fetch(`https://rebrickable.com/api/v3/lego/minifigs/fig-${id}/?key=3ef36135e7fda4370a11fd6191fef2af`).
 then(function (response) {
     return response.json();
     if (response.ok) {
@@ -33,7 +41,7 @@ then(function (response) {
         miniFigHtml.insertAdjacentHTML("beforeend", `<td><p class="naam">${miniFigs.name}</p><p id="figId">${miniFigs.set_num}</p></td>`);
 })
 
-fetch(`https://rebrickable.com/api/v3/lego/minifigs/${id}/sets/?key=3ef36135e7fda4370a11fd6191fef2af`)
+fetch(`https://rebrickable.com/api/v3/lego/minifigs/fig-${id}/sets/?key=3ef36135e7fda4370a11fd6191fef2af`)
 .then(function (response) {
     
     return response.json();
@@ -55,7 +63,7 @@ fetch(`https://rebrickable.com/api/v3/lego/minifigs/${id}/sets/?key=3ef36135e7fd
             let id = sets[i].set_num.split("-");
 
             console.log(id);
-        setsHtml.insertAdjacentHTML("beforeend", `<td><button onclick=ordenen(${i})><img src="${sets[i].set_img_url}></button></td`);
+        setsHtml.insertAdjacentHTML("beforeend", `<td><button onclick=ordenen(${i})><img src="${sets[i].set_img_url}"></button></td`);
         setsHtml.insertAdjacentHTML("beforeend", `<td><p class="naam">${sets[i].name}</p><p id="${i}">${sets[i].set_num}</p></td>`);
         }
 })
