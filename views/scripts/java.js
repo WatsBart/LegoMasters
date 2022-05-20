@@ -51,12 +51,14 @@ const tonen = () => {
                 let id = sets[i].set_num.split("-");
 
                 console.log(id);
-                setsHtml.insertAdjacentHTML("beforeend", `<td><button onclick=ordenen(${i})><img src="${sets[i].set_img_url}"></button></td`);
+                setsHtml.insertAdjacentHTML("beforeend", `<td><button onclick=ordenen(${i})><img src="${sets[i].set_img_url}"></button></td>`);
                 setsHtml.insertAdjacentHTML("beforeend", `<td><p class="naam">${sets[i].name}</p><p id="${i}">${sets[i].set_num}</p></td>`);
             }
 
 
         })
+    blackListHtml = document.getElementById("blackList");
+    blackListHtml.insertAdjacentHTML("beforeend",`<td><input type="text" id="reden"><button onclick=blacklistFig()>Blacklist</button></td>`)
 
 }
 
@@ -88,6 +90,7 @@ const ordenen = (id) => {
     xhttp.send();
     document.getElementById("miniFigs").innerHTML = "";
     document.getElementById("figSets").innerHTML = "";
+    document.getElementById("blackList").innerHTML = "";
     if (aantalFigs > 0) {
         aantalFigs--;
         tonen();
@@ -103,14 +106,14 @@ const blacklistFig = () => {
     let htmlReden = document.getElementById("reden");
     let reden = htmlReden.value.toString();
 
+    let figImg = document.getElementById("miniFigs").getElementsByTagName("img");
+    let figImgUrl = figImg[0].src;
+
     console.log(htmlReden.value);
     console.log(reden.toString());
     console.log("blacklistfig");
 
-    var data = new FormData();
-    data.append("id", figId);
-    data.append("reden", reden);
-    var params = 'id=' + figId + "&reden=" + reden;
+    var params = "figId=" + figId + "&figUrl=" + figImgUrl + "&setId=" + "" + "&setUrl=" + "" + "&reden=" + reden;
     const xhttp = new XMLHttpRequest();
     xhttp.open("POST", "ordenen", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -118,4 +121,14 @@ const blacklistFig = () => {
         console.log("Toegevoegd aan blacklist");
     }
     xhttp.send(params);
+
+    document.getElementById("miniFigs").innerHTML = "";
+    document.getElementById("figSets").innerHTML = "";
+    document.getElementById("blackList").innerHTML = "";
+    if (aantalFigs > 0) {
+        aantalFigs--;
+        tonen();
+    } else {
+        aantalKiezenHtml.insertAdjacentHTML("beforeend", '<input type="number" name="aantal" id="aantalKiezen" min="1"> <button type="button" onclick=aantalKiezen()>Submit</button>');
+    }
 }

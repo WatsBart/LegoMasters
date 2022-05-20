@@ -8,6 +8,8 @@ const axios = require('axios');
 app.set('view engine', 'ejs');
 app.set('port', 3000);
 app.use(express.static('views'));
+app.use(express.json({ limit: '1mb' }));
+app.use(express.urlencoded({ extended:true}))
 
 const db = 'itproject';
 const collection = 'yaba';
@@ -41,6 +43,22 @@ app.get('/informatie', (req: any, res: any) => {
 
 app.get('/ordenen', (req: any, res: any) => {
     res.render('ordenen');
+})
+
+app.post('/ordenen',(req:any,res:any) => {
+    let waarden = req.body;
+    let insert = async () => {
+        try {
+            // Connect to the MongoDB cluster
+            await client.connect();
+            const result = await client.db(db).collection(collection).insertOne({waarden});
+        } catch (e) {
+            console.error(e);
+        } finally {
+            await client.close();
+        }
+    }
+    insert();
 })
 
 app.get('/databaseInsert', (req: any, res: any) => {
