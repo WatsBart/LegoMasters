@@ -17,11 +17,26 @@ const collection = 'yaba';
 const {MongoClient} = require('mongodb');
 const uri = "mongodb+srv://yaba:yabaitproject@cluster0.bj6tu.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 const client = new MongoClient(uri, { useUnifiedTopology: true });
+interface Lego{
+    waarden:{
+    figId:string,
+    figUrl:string,
+    setId:string,
+    setUrl:string,
+    reden?:string
+    }
+    
+}
+
+let data:Lego[]=[];
 let Main = async () => {
     try {
         // Connect to the MongoDB cluster
         await client.connect();
- 
+
+        data = await client.db('itproject').collection('yaba').find({reden:!null}).toArray();
+        console.log(data);
+
         // Make the appropriate DB calls
         //...
         //const result = await client.db(db).collection(collection).deleteMany({});
@@ -46,7 +61,9 @@ app.get('/ordenen', (req: any, res: any) => {
 })
 
 app.get('/bekijken', (req: any, res: any) => {
-    res.render('bekijken');
+    res.render('bekijken',{
+    data:data
+    });
 })
 
 app.get('/blacklist', (req: any, res: any) => {
