@@ -31,7 +31,7 @@ let Main = async () => {
 }
 Main();
 
-app.get('/index', (req: any, res: any) => {
+app.get('/', (req: any, res: any) => {
     res.render('index');
 })
 
@@ -41,6 +41,14 @@ app.get('/informatie', (req: any, res: any) => {
 
 app.get('/ordenen', (req: any, res: any) => {
     res.render('ordenen');
+})
+
+app.get('/bekijken', (req: any, res: any) => {
+    res.render('bekijken');
+})
+
+app.get('/blacklist', (req: any, res: any) => {
+    res.render('blacklist');
 })
 
 app.get('/databaseInsert', (req: any, res: any) => {
