@@ -29,16 +29,11 @@ let Main = async () => {
 }
 Main();
 
-
-app.get('/index.html', (req: any, res: any) => {
-    res.render('index')
-});
-
-app.get('/index.html', (req: any, res: any) => {
+app.get('/index', (req: any, res: any) => {
     res.render('index');
 })
 
-app.get('/informatie.html', (req: any, res: any) => {
+app.get('/informatie', (req: any, res: any) => {
     res.render('informatie'/*, { data: db_data }*/);
 })
 
