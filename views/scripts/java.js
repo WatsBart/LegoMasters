@@ -77,10 +77,6 @@ const ordenen = (id) => {
     
     let ordenenHtmlFig = document.getElementById("figId");
     let figId = ordenenHtmlFig.innerHTML;
-
-    const xhttp = new XMLHttpRequest();
-    xhttp.onload = function() {
-    
     let figImg = document.getElementById("miniFigs").getElementsByTagName("img");
     let figImgUrl = figImg[0].src;
 
@@ -98,10 +94,8 @@ const ordenen = (id) => {
     } else {
         aantalKiezenHtml.insertAdjacentHTML("beforeend", '<input type="number" name="aantal" id="aantalKiezen" min="1"> <button type="button" onclick=aantalKiezen()>Submit</button>');
     }
-
-
 }
-}
+
 
 const blacklistFig = () => {
     let htmlFig = document.getElementById("figId");
