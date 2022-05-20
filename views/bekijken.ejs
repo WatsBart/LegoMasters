@@ -12,7 +12,7 @@
 <body id="bekijken">
     <header>
         <nav class="nav">
-            <img src="assets/images/Logo2.png" alt="Logo">
+            <img src="assets/images/yaba.png" alt="Logo">
             <h1 class="titel">Geordende minifigs</h1>
         </nav>
     </header>
@@ -25,15 +25,14 @@
                 <th scope="col">Code set</th>
             </tr>
             
-            <% console.log( "data:" )%>
+            <!-- <% console.log( "data:" )%>
             <% console.log( dataBekijken )%>
-            <% console.log( dataBekijken.set_img_url )%>
-            <%- '<img src="' + dataBekijken.set_img_url + '">' %>
-            <!-- <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+            <% console.log( dataBekijken.set_img_url )%> -->
+            <tr>
+                <td><%- '<img src="' + dataBekijken.set_img_url + '" height="150px">' %></td>
+                <td><%- '<img src="' + dataBekijken.set_num + '" height="150px">' %></td>
+                <td><%- '<img src="' + dataBekijken.set_url + '" height="150px">' %></td>
+                <td><%- '<img src="' + dataBekijken.set_img_url + '" height="150px">' %></td>
             </tr>
             <tr>
                 <td></td>
@@ -46,7 +45,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-            </tr> -->
+            </tr>
         </table>
     </main>
     <footer>

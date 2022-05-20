@@ -15,7 +15,8 @@ body {
     grid-template-areas:
       'header'
       'main'  
-      'footer'; 
+      'footer';
+      gap: 1rem;
   }
 
   header {grid-area: header;}
@@ -124,8 +125,8 @@ footer{
     color: black;
 }
 
-#home main{
-    height: 47rem;
+main{
+    height: 46rem;
 }
 
 header img{
@@ -136,6 +137,25 @@ header img{
 .nav{
     display: flex;
     gap: 30%;
+}
+
+#obb{
+    display: flex;
+    gap: 8rem;
+    flex-direction: row;
+    margin-top: -5rem;
+    margin-left: 13rem;
+}
+#obb a{
+    color: white;
+    background-image: radial-gradient(red,darkred,black);
+    
+    padding-left: 6rem;
+    padding-right: 6rem;
+    padding-top: 6rem;
+    text-align: center;
+    border-radius: 50%;
+    font-size: large;
 }
 
 #legomasters section img{
@@ -156,12 +176,11 @@ header img{
 
 #bekijken table{
     margin: auto;
-
-    width: 90rem;
+    width: 80rem;
 }
 #bekijken th{
-    border: 0.2rem solid blueviolet;
-    padding: 2rem;
+    border: 0.2rem solid red;
+    padding: 1rem;
     text-transform: uppercase;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 1.5rem;
@@ -169,6 +188,6 @@ header img{
     border-top-right-radius: 3rem;
 }
 #bekijken td{
-    border: 0.2rem solid blueviolet;
-    padding: 6rem;
+    border: 0.2rem solid red;
+    padding: 2rem;
 }
