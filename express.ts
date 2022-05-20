@@ -29,13 +29,20 @@ interface Lego{
 }
 
 let data:Lego[]=[];
+let data2:any=[];
 let Main = async () => {
     try {
         // Connect to the MongoDB cluster
         await client.connect();
 
-        data = await client.db('itproject').collection('yaba').find({reden:!null}).toArray();
-        console.log(data);
+        data = await client.db('itproject').collection('yaba').find({}).toArray();
+        for (let i = 0; i < data.length; i++) {
+            if (data[i].waarden.reden === "") {
+                data2.push(data[i]);
+            }
+            else{}
+        }
+        console.log(data2.length);
 
         // Make the appropriate DB calls
         //...
@@ -62,7 +69,7 @@ app.get('/ordenen', (req: any, res: any) => {
 
 app.get('/bekijken', (req: any, res: any) => {
     res.render('bekijken',{
-    data:data
+    data:data2
     });
 })
 
