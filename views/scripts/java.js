@@ -4,7 +4,8 @@ console.log("java");
 let minifigs;
 
 const aantalKiezenHtml = document.getElementById("aantal");
-aantalKiezenHtml.insertAdjacentHTML("beforeend", '<input type="number" name="aantal" id="aaantalKiezen"> <button type="button" onclick=aantalKiezen()>Submit</button>');
+aantalKiezenHtml.insertAdjacentHTML("beforeend", '<input type="number" name="aantal" id="aantalKiezen" min="0"> <button type="button" onclick=aantalKiezen()>Submit</button>');
+let aantalFigs;
 
 // let random = Math.floor(Math.random() * 10999);
 // console.log(random);
@@ -78,14 +79,14 @@ fetch(`https://rebrickable.com/api/v3/lego/minifigs/${miniFigs[random].set_num}/
         setsHtml.insertAdjacentHTML("beforeend", `<td><button onclick=ordenen(${i})><img src="${sets[i].set_img_url}"></button></td`);
         setsHtml.insertAdjacentHTML("beforeend", `<td><p class="naam">${sets[i].name}</p><p id="${i}">${sets[i].set_num}</p></td>`);
         }
-
-
 })
 
 }
 
 const aantalKiezen = () => {
     console.log("aantal kiezen");
+    aantalFigs = parseInt(document.getElementById("aantalKiezen").value) - 1;
+    console.log(aantalFigs);
     document.getElementById("aantal").innerHTML = "";
     tonen();
 }
@@ -116,8 +117,10 @@ const ordenen = (id) => {
     xhttp.send();
     document.getElementById("miniFigs").innerHTML = "";
     document.getElementById("figSets").innerHTML = "";
-    
-
+    if (aantalFigs > 0) {
+        aantalFigs--;
+        tonen();
+    }
 }
 
 const blacklistFig = () => {
