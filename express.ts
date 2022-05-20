@@ -9,6 +9,8 @@ app.set('view engine', 'ejs');
 app.set('port', 3000);
 app.use(express.static('views'));
 
+const db = 'itproject';
+const collection = 'yaba';
 
 const {MongoClient} = require('mongodb');
 const uri = "mongodb+srv://yaba:yabaitproject@cluster0.bj6tu.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
@@ -20,7 +22,7 @@ let Main = async () => {
  
         // Make the appropriate DB calls
         //...
- 
+        //const result = await client.db(db).collection(collection).deleteMany({});
     } catch (e) {
         console.error(e);
     } finally {
@@ -49,7 +51,7 @@ app.get('/databaseInsert', (req: any, res: any) => {
         try {
             // Connect to the MongoDB cluster
             await client.connect();
-            const result = await client.db('itproject').collection('yaba').insertOne({waarden});
+            const result = await client.db(db).collection(collection).insertOne({waarden});
         } catch (e) {
             console.error(e);
         } finally {
@@ -61,5 +63,4 @@ app.get('/databaseInsert', (req: any, res: any) => {
 
 app.listen(app.get('port'),
     () => console.log('[server] http://localhost:' + app.get('port')));
-
 
