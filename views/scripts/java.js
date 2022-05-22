@@ -16,7 +16,7 @@ const tonen = async () => {
     while (filter) {
         id = "";
         console.log("filter");
-        random = Math.floor(Math.random() * 16); //10990
+        random = Math.floor(Math.random() * 10990); //10990
         for (let i = random.toString().length; i<6; i++) {
             id = id + "0";
         }
@@ -33,10 +33,7 @@ const tonen = async () => {
     .then(function (response) {
         return response.json();
     }).then(function (response) {
-        console.log(response);
-        console.log("fig");
         miniFig = response;
-        console.log(miniFig);
 })
     let miniFigHtml = document.getElementById("miniFigs");
     miniFigHtml.insertAdjacentHTML("beforeend", `<td><img src="${miniFig.set_img_url}"></td>`);
