@@ -13,6 +13,7 @@ app.use(express.urlencoded({ extended:true}))
 
 const db = 'itproject';
 const collection = 'yaba';
+let ids: string[] = [];
 
 const {MongoClient} = require('mongodb');
 const uri = "mongodb+srv://yaba:yabaitproject@cluster0.bj6tu.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
@@ -21,7 +22,13 @@ let Main = async () => {
     try {
         // Connect to the MongoDB cluster
         await client.connect();
- 
+        let cursor = await client.db(db).collection(collection).find({});
+        let idList = await cursor.toArray();
+        console.log(idList);
+        idList.forEach((el: any) => {
+            ids.push(el.waarden.figId);
+        });
+        console.log(ids);
         // Make the appropriate DB calls
         //...
         //const result = await client.db(db).collection(collection).deleteMany({});
@@ -42,7 +49,7 @@ app.get('/informatie', (req: any, res: any) => {
 })
 
 app.get('/ordenen', (req: any, res: any) => {
-    res.render('ordenen');
+    res.render('ordenen', {figIds: ids});
 })
 
 app.get('/bekijken', (req: any, res: any) => {
@@ -70,8 +77,6 @@ app.post('/ordenen',(req:any,res:any) => {
 })
 
 app.get('/databaseInsert', (req: any, res: any) => {
-    console.log(req.query);
-    console.log("get request aanvaard");
     let waarden = req.query;
     let insert = async () => {
         try {
