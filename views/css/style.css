@@ -148,7 +148,7 @@ header img{
 }
 #obb a{
     color: white;
-    background-image: radial-gradient(red,darkred,black);
+    background-image: linear-gradient(rgba(152, 98, 5, 0.483),brown,rgba(152, 98, 5, 0.483));
     padding-left: 6rem;
     padding-right: 6rem;
     padding-top: 6rem;
