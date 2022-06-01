@@ -17,7 +17,7 @@ const tonen = async () => {
         id = "";
         console.log("filter");
         random = Math.floor(Math.random() * 10990); //10990
-        for (let i = random.toString().length; i<6; i++) {
+        for (let i = random.toString().length; i < 6; i++) {
             id = id + "0";
         }
         id = id + random.toString();
@@ -30,11 +30,11 @@ const tonen = async () => {
     }
     console.log(id);
     await fetch(`https://rebrickable.com/api/v3/lego/minifigs/fig-${id}/?key=3ef36135e7fda4370a11fd6191fef2af`)
-    .then(function (response) {
-        return response.json();
-    }).then(function (response) {
-        miniFig = response;
-})
+        .then(function (response) {
+            return response.json();
+        }).then(function (response) {
+            miniFig = response;
+        })
     let miniFigHtml = document.getElementById("miniFigs");
     miniFigHtml.insertAdjacentHTML("beforeend", `<td><img src="${miniFig.set_img_url}"></td>`);
     miniFigHtml.insertAdjacentHTML("beforeend", `<td><p class="naam">${miniFig.name}</p><p id="figId">${miniFig.set_num}</p></td>`);
@@ -62,7 +62,7 @@ const tonen = async () => {
 
         })
     blackListHtml = document.getElementById("blackList");
-    blackListHtml.insertAdjacentHTML("beforeend",`<td><input type="text" id="reden"><button onclick=blacklistFig()>Blacklist</button></td>`)
+    blackListHtml.insertAdjacentHTML("beforeend", `<td><input type="text" id="reden"><button onclick=blacklistFig()>Blacklist</button></td>`)
 
 }
 
@@ -80,7 +80,7 @@ const ordenen = (id) => {
     let buttons = document.getElementsByTagName("button");
     let setImg = buttons[id].getElementsByTagName("img");
     setImgUrl = setImg[0].src;
-    
+
     let ordenenHtmlFig = document.getElementById("figId");
     let figId = ordenenHtmlFig.innerHTML;
     let figImg = document.getElementById("miniFigs").getElementsByTagName("img");
@@ -110,29 +110,31 @@ const blacklistFig = () => {
     let htmlReden = document.getElementById("reden");
     let reden = htmlReden.value.toString();
 
-    let figImg = document.getElementById("miniFigs").getElementsByTagName("img");
-    let figImgUrl = figImg[0].src;
+    if (reden != "") {
+        let figImg = document.getElementById("miniFigs").getElementsByTagName("img");
+        let figImgUrl = figImg[0].src;
 
-    console.log(htmlReden.value);
-    console.log(reden.toString());
-    console.log("blacklistfig");
+        console.log(htmlReden.value);
+        console.log(reden.toString());
+        console.log("blacklistfig");
 
-    var params = "figId=" + figId + "&figUrl=" + figImgUrl + "&setId=" + "" + "&setUrl=" + "" + "&reden=" + reden;
-    const xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "ordenen", true);
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.onload = function () {
-        console.log("Toegevoegd aan blacklist");
-    }
-    xhttp.send(params);
+        var params = "figId=" + figId + "&figUrl=" + figImgUrl + "&setId=" + "" + "&setUrl=" + "" + "&reden=" + reden;
+        const xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "ordenen", true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.onload = function () {
+            console.log("Toegevoegd aan blacklist");
+        }
+        xhttp.send(params);
 
-    document.getElementById("miniFigs").innerHTML = "";
-    document.getElementById("figSets").innerHTML = "";
-    document.getElementById("blackList").innerHTML = "";
-    if (aantalFigs > 0) {
-        aantalFigs--;
-        tonen();
-    } else {
-        aantalKiezenHtml.insertAdjacentHTML("beforeend", '<input type="number" name="aantal" id="aantalKiezen" min="1"> <button type="button" onclick=aantalKiezen()>Submit</button>');
+        document.getElementById("miniFigs").innerHTML = "";
+        document.getElementById("figSets").innerHTML = "";
+        document.getElementById("blackList").innerHTML = "";
+        if (aantalFigs > 0) {
+            aantalFigs--;
+            tonen();
+        } else {
+            aantalKiezenHtml.insertAdjacentHTML("beforeend", '<input type="number" name="aantal" id="aantalKiezen" min="1"> <button type="button" onclick=aantalKiezen()>Submit</button>');
+        }
     }
 }
