@@ -14,12 +14,14 @@ body {
     display: grid;
     grid-template-areas:
       'header'
+      'nav'
       'main'  
       'footer';
       gap: 1rem;
   }
-
+  
   header {grid-area: header;}
+  nav {grid-area: nav;}
   main {grid-area: main;}
   footer {grid-area: footer;}
 
