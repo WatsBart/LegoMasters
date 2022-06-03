@@ -7,6 +7,7 @@
     <title>Blacklist</title>
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/reset.css">
+    <script src="scripts/blacklistJava.js" defer></script>
 </head>
 <body id="blacklist">
     <header>
@@ -15,8 +16,26 @@
             <h1 class="titel">Blacklisted minifigs</h1>
         </nav>
     </header>
-    <main>
-
+    <main id="blacklistTabel">
+        <table>
+            <tr>
+                <th scope="col">Afbeelding minifig</th>
+                <th scope="col">Code minifig</th>
+                <th scope="col">Reden</th>
+                <th scope="col">Reden aanpassen</th>
+                <th scope="col">Fig verwijderen</th>
+            </tr>
+            
+            <% for (let i = 0; i < data.length; i++) {%>
+                <tr>
+                <td><img src="<%= data[i].waarden.figUrl %>" alt="" height="150"></td>
+                <td id="i<%= i %>"><%=data[i].waarden.figId%></td>
+                <td><p><%= data[i].waarden.reden %></p></td>
+                <td><input id="r<%= i %>" type="text"><button onclick=redenAanpassen(<%= i %>) id="a<%= i %>">Reden aanpassen</button></td>
+                <td><button id="v<%= i %>" onclick=verwijder(<%= i %>)>Verwijder</button></td>
+            </tr>
+            <% }; %>
+        </table>
     </main>
     <footer>
         <p>&copy;YABA - Lego Masters</p>
