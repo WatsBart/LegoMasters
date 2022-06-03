@@ -35,6 +35,16 @@ let Main = async () => {
     try {
         // Connect to the MongoDB cluster
         await client.connect();
+
+        data = await client.db('itproject').collection('yaba').find({}).toArray();
+        for (let i = 0; i < data.length; i++) {
+            if (data[i].waarden.reden === "") {
+                data2.push(data[i]);
+            }
+            else{}
+        }
+        console.log(data2.length);
+
         let cursor = await client.db(db).collection(collection).find({});
         let idList = await cursor.toArray();
         console.log(idList);
