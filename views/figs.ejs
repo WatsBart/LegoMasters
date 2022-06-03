@@ -9,8 +9,14 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/reset.css">
 </head>
-<body>
-    <table>
+<body id="bekijken">
+    <header>
+        <nav class="nav">
+            <img src="assets/images/yaba.png" alt="Logo">
+            <h1 class="titel">Geordende minifigs</h1>
+        </nav>
+    </header>
+    <main>
         <table>
             <tr>
                 <th>Foto</th>
@@ -20,11 +26,14 @@
             <% for (let i = 0; i < data.length; i++) { %>
                 <%= data[i].setId; %>
                     <tr>
-                        <td><img src="<%= data[i].set_img_url %>" alt="" height="150"></a></td>
+                        <td><img src="<%= data[i].set_img_url %>" alt="" width="150"></a></td>
                         <td><%= data[i].set_name %></td>
                     </tr>
                 <% }; %>
         </table>
-    </table>
+    </main>
+        <footer>
+            <p>&copy;YABA - Lego Masters</p>
+        </footer>
 </body>
 </html>

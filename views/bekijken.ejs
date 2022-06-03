@@ -28,9 +28,9 @@
             <% for (let i = 0; i < data.length; i++) {%>
             <%=data[i].setId;%>
                 <tr>
-                <td><a href="/parts?id=<%=data[i].waarden.figId%>"><img src="<%= data[i].waarden.figUrl %>" alt="" height="150"></a></td>
+                <td><a href="/parts?id=<%=data[i].waarden.figId%>" target="_blank"><img src="<%= data[i].waarden.figUrl %>" alt="" height="150"></a></td>
                 <td><%=data[i].waarden.figId%></td>
-                <td><a href="/figs?id=<%=data[i].waarden.setId%>"><img src="<%= data[i].waarden.setUrl %>" alt="" height="150"></a></td>
+                <td><a href="/figs?id=<%=data[i].waarden.setId%>" target="_blank"><img src="<%= data[i].waarden.setUrl %>" alt="" height="150"></a></td>
                 <td><%=data[i].waarden.setId%></td>
             </tr>
             <% }; %>

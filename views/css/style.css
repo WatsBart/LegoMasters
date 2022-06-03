@@ -175,7 +175,7 @@ header img{
 
 #bekijken table{
     margin: auto;
-    width: 80rem;
+    width: auto;
     border-collapse: collapse;
 }
 #bekijken th{
