@@ -141,16 +141,12 @@ app.get('/databaseChange', (req: any, res: any) => {
                     objectId = fig._id;
                 }
             });
-            console.log("object id");
-            console.log(objectId);
             if(objectId != ""){
                 let fig = await client.db(db).collection(collection).findOne({_id:objectId});
-                console.log(fig);
                 fig.waarden.reden = nieuweReden;
                 await client.db(db).collection(collection).updateOne({_id:objectId},{$set:{waarden:fig.waarden}});
                 data = await client.db(db).collection(collection).find({}).toArray();
                 blacklistData = [];
-                console.log(data);
                 for (let i = 0; i < data.length; i++) {
                     if (data[i].waarden.reden === "") {
 
