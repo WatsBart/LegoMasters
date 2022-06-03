@@ -117,6 +117,24 @@ app.get('/databaseInsert', (req: any, res: any) => {
     insert();
 })
 
+app.get('/parts', (req: any, res: any) => {
+    let index = req.query;
+    const apiCall = async () => {
+    let response = await axios.get(`https://rebrickable.com/api/v3/lego/minifigs/${index.id}/parts/?key=3ef36135e7fda4370a11fd6191fef2af`);
+    res.render('parts', {data: response.data.results});
+    }
+    apiCall();
+})
+
+app.get('/figs', (req: any, res: any) => {
+    let index = req.query;
+    const apiCall = async () => {
+    let response = await axios.get(`https://rebrickable.com/api/v3/lego/sets/${index.id}/minifigs/?key=3ef36135e7fda4370a11fd6191fef2af`);
+    res.render('figs', {data: response.data.results});
+    }
+    apiCall();
+})
+
 app.listen(app.get('port'),
     () => console.log('[server] http://localhost:' + app.get('port')));
 
