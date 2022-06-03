@@ -206,6 +206,18 @@ nav a{
     height: 150px;
 }
 
+/* ordenen */
+#ordenenTabel thead tr td{
+    width: auto;
+}
+
+#ordenenTabel thead tr td p{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+
 @media only screen and (max-width: 770px) {
     /* stijlregels voor schermen > 320px en ≤ 720px breed */
     #bekijken table{
