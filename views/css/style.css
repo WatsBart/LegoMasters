@@ -145,7 +145,7 @@ header img{
     display: flex;
     gap: 8rem;
     flex-direction: row;
-    margin-top: -5rem;
+    margin: 8rem;
     margin-left: 13rem;
 }
 #obb a{
@@ -184,33 +184,38 @@ nav a{
 }
 /*bekijken*/
 
-#bekijkenTabel table,#blacklistTabel table{
+
+#bekijkenTabel table,
+#blacklistTabel table {
     margin: auto;
     width: auto;
     border-collapse: collapse;
 }
-#bekijkenTabel th,#blacklistTabel th{
+
+#bekijkenTabel th,
+#blacklistTabel th {
     border: 0.2rem solid darkred;
     padding: 1rem;
     text-transform: uppercase;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 1.5rem;
-    border-top-left-radius: 3rem; 
+    border-top-left-radius: 3rem;
     border-top-right-radius: 3rem;
 }
-#bekijkenTabel td,#blacklistTabel td{
+
+#bekijkenTabel td,
+#blacklistTabel td {
     border: 0.2rem solid darkred;
     padding: 2rem;
 }
-#bekijkenTabel td img{
+
+#bekijkenTabel td img {
     height: 150px;
 }
 
-/* ordenen */
 #ordenenTabel thead tr td{
     width: auto;
 }
-
 #ordenenTabel thead tr td p{
     width: 100%;
     padding: 0;
@@ -219,13 +224,131 @@ nav a{
 
 
 @media only screen and (max-width: 770px) {
-    /* stijlregels voor schermen > 320px en ≤ 720px breed */
-    #bekijken table{
+    /* stijlregels voor schermen > 320px en ≤ 770px breed */
+    * {
+        box-sizing: border-box;
+        font-family: Arial, Georgia, sans-serif;
+        
+    }
+
+    body {
+        max-width: 100%;
+        margin: auto;
+        display: grid;
+        grid-template-areas:
+          'header'
+          'nav'
+          'main'  
+          'footer';
+          gap: 1rem;
+      }
+
+    #miniFigs img, #figSets img{
+        height: 100px;
+        width: 100px;
+    }
+    
+    .titel{
+        color: white;
+        text-align: center;
+        font-size: 2rem;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin-left: -5rem;
+    }
+    #home section img{
+        height: 15rem;
+        border-radius: 5rem;
+        border: 0.2rem dotted red;
+        width: 250px;
+        height: 250px;
+        object-fit: fill;
+        display: block;
+    }
+    
+    #home section {
+        display: flex;
+        gap: 8rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-left: 13rem;
+    }
+    #home section h3{
+        text-decoration: underline;
+        text-align: center;
+        font-size: 1.3rem;
+        color: black;
+    }
+    
+    #legomasters main, #ordenen main{
+        height: 45.6rem;
+    }
+    #home main{
+        height: 145rem;
+    }
+    
+    header img{
+        height: 80px;
+        border-radius: 50%;
+        padding: .5rem;
+    }
+    .nav{
+        display: flex;
+        gap: 30%;
+    }
+    
+    #obb{
+        display: flex;
+        gap: 3rem;
+        flex-direction: column;
         margin: 0 auto;
-        width: 50rem;
+        margin-left: 35%;
+    }
+    #obb a{
+        color: white;
+        background-image: linear-gradient(rgba(152, 98, 5, 0.483),brown,rgba(152, 98, 5, 0.483));
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+        text-align: center;
+        border-radius: 50%;
+        font-size: medium;
+        max-width: 15rem;
+    }
+    
+    nav a{
+        background-image: linear-gradient(rgba(152, 98, 5, 0.483),brown,rgba(152, 98, 5, 0.483));
+        color:white;
+        padding: 1rem;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 25%;
+    }
+    
+    #legomasters section img{
+        border-radius: 3rem;
+        border: 0.2rem dotted red;
+    }
+    
+    .naam{
+        max-width: 5rem;
+        text-align: justify;
+        text-overflow: ellipsis;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 1rem;
+        margin: auto;
+        color: black;
+    }
+
+    /*tabel*/
+    #bekijkenTabel table,
+    #blacklistTabel table{
+        margin: 0 auto;
+        width: 47rem;
         border-collapse: collapse;
     }
-    #bekijken th{
+    #bekijkenTabel th,
+    #blacklistTabel th{
         border: 0.1rem solid darkred;
         padding: 0.5rem;
         text-transform: uppercase;
@@ -235,36 +358,159 @@ nav a{
         border-top-right-radius: 2rem;
         width: 1rem;
     }
-    #bekijken td{
+    #bekijkenTabel td,
+    #blacklistTabel td{
         border: 0.1rem solid darkred;
         padding: 1rem;
     }
-    #bekijkenTabel td img{
+    #bekijkenTabel td img,
+    #blacklistTabel td img{
         height: 100px;
     }
 }
 
 @media only screen and (max-width:320px) {
     /* stijlregels voor schermen ≤ 320px breed */
-    #bekijken table{
+    * {
+        box-sizing: border-box;
+        font-family: Arial, Georgia, sans-serif;
+        
+    }
+
+    body {
+        max-width: 100%;
         margin: auto;
-        width: 30rem;
+        display: grid;
+        grid-template-areas:
+          'header'
+          'nav'
+          'main'  
+          'footer';
+          gap: 1rem;
+      }
+
+    #miniFigs img, #figSets img{
+        height: 50px;
+        width: 50px;
+    }
+    
+    .titel{
+        color: white;
+        text-align: center;
+        font-size: 1.5rem;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin-left: -1rem;
+    }
+    #home section img{
+        height: 10rem;
+        border-radius: 5rem;
+        border: 0.2rem dotted red;
+        width: 200px;
+        height: 200px;
+        object-fit: fill;
+        display: block;
+    }
+    
+    #home section {
+        display: flex;
+        gap: 8rem;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-left: 1rem;
+    }
+    #home section h3{
+        text-decoration: underline;
+        text-align: center;
+        font-size: 1.3rem;
+        color: black;
+    }
+    
+    #legomasters main, #ordenen main{
+        height: 45.6rem;
+    }
+    #home main{
+        height: 145rem;
+    }
+    
+    header img{
+        height: 50px;
+        border-radius: 50%;
+        padding: .5rem;
+    }
+    .nav{
+        display: flex;
+        gap: 7%;
+    }
+    
+    #obb{
+        display: flex;
+        gap: 3rem;
+        flex-direction: column;
+        margin: 0 auto;
+        margin-left: 15%;
+    }
+    #obb a{
+        color: white;
+        background-image: linear-gradient(rgba(152, 98, 5, 0.483),brown,rgba(152, 98, 5, 0.483));
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+        text-align: center;
+        border-radius: 50%;
+        font-size: medium;
+        max-width: 15rem;
+    }
+    
+    nav a{
+        background-image: linear-gradient(rgba(152, 98, 5, 0.483),brown,rgba(152, 98, 5, 0.483));
+        color:white;
+        padding: 1rem;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 25%;
+    }
+    
+    #legomasters section img{
+        border-radius: 3rem;
+        border: 0.2rem dotted red;
+    }
+    
+    .naam{
+        max-width: 5rem;
+        text-align: justify;
+        text-overflow: ellipsis;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 1rem;
+        margin: auto;
+        color: black;
+    }
+
+    /*tabel*/
+    #bekijkenTabel table,
+    #blacklistTabel table{
+        margin: 0 auto;
+        width: 40rem;
         border-collapse: collapse;
     }
-    #bekijken th{
-        border: 0.2rem solid darkred;
-        padding: 1rem;
+    #bekijkenTabel th,
+    #blacklistTabel th{
+        border: 0.1rem solid darkred;
+        padding: 0.5rem;
         text-transform: uppercase;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        font-size: 1.5rem;
-        border-top-left-radius: 1rem; 
-        border-top-right-radius: 1rem;
+        font-size: 1rem;
+        border-top-left-radius: 2rem; 
+        border-top-right-radius: 2rem;
+        width: 1rem;
     }
-    #bekijken td{
-        border: 0.2rem solid darkred;
-        padding: 2rem;
+    #bekijkenTabel td,
+    #blacklistTabel td{
+        border: 0.1rem solid darkred;
+        padding: 1rem;
     }
-    #bekijkenTabel td img{
+    #bekijkenTabel td img,
+    #blacklistTabel td img{
         height: 50px;
     }
 }
