@@ -8,6 +8,8 @@ const redenAanpassen = (id) => {
     let figId = htmlFig.innerHTML;
     console.log(figId);
 
+    document.getElementById("reden"+id).innerHTML = reden;
+
     const xhttp = new XMLHttpRequest();
     xhttp.onload = function () {
         console.log('hallo');
@@ -29,4 +31,5 @@ const verwijder = (id) => {
     }
     xhttp.open("GET", "databaseDelete?figId=" + figId);
     xhttp.send();
+    document.getElementById("row"+id).innerHTML="";
 }

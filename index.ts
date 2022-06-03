@@ -36,7 +36,8 @@ let Main = async () => {
     try {
         // Connect to the MongoDB cluster
         await client.connect();
-
+        data2 = [];
+        blacklistData = [];
         data = await client.db('itproject').collection('yaba').find({}).toArray();
         //console.log(data);
         for (let i = 0; i < data.length; i++) {
@@ -114,6 +115,7 @@ app.get('/databaseInsert', (req: any, res: any) => {
             // Connect to the MongoDB cluster
             await client.connect();
             const result = await client.db(db).collection(collection).insertOne({ waarden });
+            Main();
         } catch (e) {
             console.error(e);
         } finally {
@@ -125,8 +127,43 @@ app.get('/databaseInsert', (req: any, res: any) => {
 
 app.get('/databaseChange', (req: any, res: any) => {
     let waarden = req.query;
+    let nieuweReden = waarden.reden;
+    let id = waarden.figId;
     console.log(waarden);
     console.log("databaseChange");
+    console.log(nieuweReden);
+    if(nieuweReden != ""){
+        console.log("ok");
+        let change = async () => {
+            await client.connect();
+            let data = await client.db(db).collection(collection).find({}).toArray();
+            let objectId = "";
+            data.forEach((fig: any) => {
+                if (fig.waarden.figId == id) {
+                    objectId = fig._id;
+                }
+            });
+            if(objectId != ""){
+                let fig = await client.db(db).collection(collection).findOne({_id:objectId});
+                fig.waarden.reden = nieuweReden;
+                await client.db(db).collection(collection).updateOne({_id:objectId},{$set:{waarden:fig.waarden}});
+                data = await client.db(db).collection(collection).find({}).toArray();
+                blacklistData = [];
+                for (let i = 0; i < data.length; i++) {
+                    if (data[i].waarden.reden === "") {
+
+                    }
+                    else {
+                        blacklistData.push(data[i]);
+                    }
+                }
+                res.render('blacklist', {
+                    data: blacklistData
+                });
+            }
+        }
+        change();
+    }
 })
 
 app.get('/databaseDelete', (req: any, res: any) => {
@@ -159,6 +196,7 @@ app.get('/databaseDelete', (req: any, res: any) => {
                     }
                 }
             }
+
         } catch (e) {
             console.error(e);
         } finally {
@@ -166,6 +204,24 @@ app.get('/databaseDelete', (req: any, res: any) => {
         }
     }
     insert();
+})
+
+app.get('/parts', (req: any, res: any) => {
+    let index = req.query;
+    const apiCall = async () => {
+    let response = await axios.get(`https://rebrickable.com/api/v3/lego/minifigs/${index.id}/parts/?key=3ef36135e7fda4370a11fd6191fef2af`);
+    res.render('parts', {data: response.data.results});
+    }
+    apiCall();
+})
+
+app.get('/figs', (req: any, res: any) => {
+    let index = req.query;
+    const apiCall = async () => {
+    let response = await axios.get(`https://rebrickable.com/api/v3/lego/sets/${index.id}/minifigs/?key=3ef36135e7fda4370a11fd6191fef2af`);
+    res.render('figs', {data: response.data.results});
+    }
+    apiCall();
 })
 
 app.listen(app.get('port'),
