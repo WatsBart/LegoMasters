@@ -36,7 +36,8 @@ let Main = async () => {
     try {
         // Connect to the MongoDB cluster
         await client.connect();
-
+        data2 = [];
+        blacklistData = [];
         data = await client.db('itproject').collection('yaba').find({}).toArray();
         //console.log(data);
         for (let i = 0; i < data.length; i++) {
