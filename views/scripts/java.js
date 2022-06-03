@@ -2,7 +2,7 @@
 console.log("java");
 
 const aantalKiezenHtml = document.getElementById("aantal");
-aantalKiezenHtml.insertAdjacentHTML("beforeend", '<input type="number" name="aantal" id="aantalKiezen" min="1"> <button type="button" onclick=aantalKiezen()>Submit</button>');
+aantalKiezenHtml.insertAdjacentHTML("beforeend", '<label for="aantalKiezen">Kies het aantal figs dat je wil sorteren.</label><br><input type="number" name="aantal" id="aantalKiezen" min="1"> <button type="button" onclick=aantalKiezen()>Submit</button>');
 let aantalFigs;
 let aantalSkips = 0;
 let aantalGeordend = 0;
@@ -78,8 +78,8 @@ const skip = () => {
         aantalFigs--;
         tonen();
     } else {
-        aantalKiezenHtml.insertAdjacentHTML("beforeend", '<input type="number" name="aantal" id="aantalKiezen" min="1"> <button type="button" onclick=aantalKiezen()>Submit</button>');
-        document.getElementById("result").insertAdjacentHTML("beforeend", `Je hebt ${aantalGeordend} figs geordend en ${aantalSkips} figs geskipt.`);
+        aantalKiezenHtml.insertAdjacentHTML("beforeend", '<label for="aantalKiezen">Kies het aantal figs dat je wil sorteren.</label><br><input type="number" name="aantal" id="aantalKiezen" min="1"> <button type="button" onclick=aantalKiezen()>Submit</button>');
+        document.getElementById("result").insertAdjacentHTML("beforeend", `Je hebt ${aantalGeordend} fig(s) geordend en ${aantalSkips} fig(s) geskipt.`);
     }
 }
 
@@ -120,7 +120,7 @@ const ordenen = (id) => {
         aantalFigs--;
         tonen();
     } else {
-        aantalKiezenHtml.insertAdjacentHTML("beforeend", '<input type="number" name="aantal" id="aantalKiezen" min="1"> <button type="button" onclick=aantalKiezen()>Submit</button>');
+        aantalKiezenHtml.insertAdjacentHTML("beforeend", '<label for="aantalKiezen">Kies het aantal figs dat je wil sorteren.</label><br><input type="number" name="aantal" id="aantalKiezen" min="1"> <button type="button" onclick=aantalKiezen()>Submit</button>');
         document.getElementById("result").insertAdjacentHTML("beforeend", `Je hebt ${aantalGeordend} figs geordend en ${aantalSkips} figs geskipt.`);
         aantalGeordend = 0;
         aantalSkips = 0;
