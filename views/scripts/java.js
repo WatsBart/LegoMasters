@@ -13,6 +13,7 @@ const tonen = async () => {
     let id = "";
     let filter = true;
     let random;
+    let sets;
     while (filter) {
         id = "";
         console.log("filter");
@@ -23,8 +24,20 @@ const tonen = async () => {
         id = id + random.toString();
         figTest = "fig-" + id;
         if (!idList.includes(figTest)) {
-            filter = false;
-            idList.push(figTest);
+            await fetch(`https://rebrickable.com/api/v3/lego/minifigs/${figTest}/sets/?key=3ef36135e7fda4370a11fd6191fef2af`)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (response) {
+                    sets = response.results;
+                    aantal = response.count;
+                    console.log("list: ");
+                    console.log(sets);
+                    if (aantal > 1) {
+                        filter = false;
+                        idList.push(figTest);
+                    }
+                })
         }
         console.log(idList);
     }
@@ -38,29 +51,15 @@ const tonen = async () => {
     let miniFigHtml = document.getElementById("miniFigs");
     miniFigHtml.insertAdjacentHTML("beforeend", `<td><img src="${miniFig.set_img_url}"></td>`);
     miniFigHtml.insertAdjacentHTML("beforeend", `<td><p class="naam">${miniFig.name}</p><p id="figId">${miniFig.set_num}</p></td>`);
-    await fetch(`https://rebrickable.com/api/v3/lego/minifigs/${miniFig.set_num}/sets/?key=3ef36135e7fda4370a11fd6191fef2af`)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (response) {
 
-            let sets = response.results;
-            console.log("list: ");
-            console.log(sets);
+    let setsHtml = document.getElementById("figSets");
 
-
-            let setsHtml = document.getElementById("figSets");
-
-            for (let i = 0; i < sets.length; i++) {
-                let id = sets[i].set_num.split("-");
-
-                console.log(id);
-                setsHtml.insertAdjacentHTML("beforeend", `<td><button onclick=ordenen(${i})><img src="${sets[i].set_img_url}"></button></td>`);
-                setsHtml.insertAdjacentHTML("beforeend", `<td><p class="naam">${sets[i].name}</p><p id="${i}">${sets[i].set_num}</p></td>`);
-            }
-
-
-        })
+    for (let i = 0; i < sets.length; i++) {
+        let id = sets[i].set_num.split("-");
+        console.log(id);
+        setsHtml.insertAdjacentHTML("beforeend", `<td><button onclick=ordenen(${i})><img src="${sets[i].set_img_url}"></button></td>`);
+        setsHtml.insertAdjacentHTML("beforeend", `<td><p class="naam">${sets[i].name}</p><p id="${i}">${sets[i].set_num}</p></td>`);
+    }
     blackListHtml = document.getElementById("blackList");
     blackListHtml.insertAdjacentHTML("beforeend", `<td><input type="text" id="reden"><button onclick=blacklistFig()>Blacklist</button></td>`)
 
