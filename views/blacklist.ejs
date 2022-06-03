@@ -27,10 +27,10 @@
             </tr>
             
             <% for (let i = 0; i < data.length; i++) {%>
-                <tr>
+            <tr id="row<%= i %>">
                 <td><img src="<%= data[i].waarden.figUrl %>" alt="" height="150"></td>
                 <td id="i<%= i %>"><%=data[i].waarden.figId%></td>
-                <td><p><%= data[i].waarden.reden %></p></td>
+                <td><p id="reden<%= i %>"><%= data[i].waarden.reden %></p></td>
                 <td><input id="r<%= i %>" type="text"><button onclick=redenAanpassen(<%= i %>) id="a<%= i %>">Reden aanpassen</button></td>
                 <td><button id="v<%= i %>" onclick=verwijder(<%= i %>)>Verwijder</button></td>
             </tr>

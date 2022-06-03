@@ -115,6 +115,7 @@ app.get('/databaseInsert', (req: any, res: any) => {
             // Connect to the MongoDB cluster
             await client.connect();
             const result = await client.db(db).collection(collection).insertOne({ waarden });
+            Main();
         } catch (e) {
             console.error(e);
         } finally {
