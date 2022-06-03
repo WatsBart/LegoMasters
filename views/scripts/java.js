@@ -154,6 +154,7 @@ const blacklistFig = () => {
         document.getElementById("miniFigs").innerHTML = "";
         document.getElementById("figSets").innerHTML = "";
         document.getElementById("blackList").innerHTML = "";
+        document.getElementById("skip").innerHTML = "";
         if (aantalFigs > 0) {
             aantalFigs--;
             tonen();
