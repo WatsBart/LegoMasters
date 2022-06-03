@@ -4,6 +4,7 @@ console.log("java");
 const aantalKiezenHtml = document.getElementById("aantal");
 aantalKiezenHtml.insertAdjacentHTML("beforeend", '<input type="number" name="aantal" id="aantalKiezen" min="1"> <button type="button" onclick=aantalKiezen()>Submit</button>');
 let aantalFigs;
+let aantalSkips = 0;
 
 //code afkomstig van w3schools
 
@@ -61,8 +62,18 @@ const tonen = async () => {
         setsHtml.insertAdjacentHTML("beforeend", `<td><p class="naam">${sets[i].name}</p><p id="${i}">${sets[i].set_num}</p></td>`);
     }
     blackListHtml = document.getElementById("blackList");
-    blackListHtml.insertAdjacentHTML("beforeend", `<td><input type="text" id="reden"><button onclick=blacklistFig()>Blacklist</button></td>`)
+    blackListHtml.insertAdjacentHTML("beforeend", `<td><input type="text" id="reden"><button onclick=blacklistFig()>Blacklist</button></td>`);
+    skipHtml = document.getElementById("skip");
+    skipHtml.insertAdjacentHTML("beforeend", "<td><button onclick=skip()>Skip</button></td>");
+}
 
+const skip = () => {
+    document.getElementById("miniFigs").innerHTML = "";
+    document.getElementById("figSets").innerHTML = "";
+    document.getElementById("blackList").innerHTML = "";
+    document.getElementById("skip").innerHTML = "";
+    aantalFigs--;
+    tonen();
 }
 
 const aantalKiezen = () => {
