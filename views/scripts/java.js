@@ -5,6 +5,7 @@ const aantalKiezenHtml = document.getElementById("aantal");
 aantalKiezenHtml.insertAdjacentHTML("beforeend", '<input type="number" name="aantal" id="aantalKiezen" min="1"> <button type="button" onclick=aantalKiezen()>Submit</button>');
 let aantalFigs;
 let aantalSkips = 0;
+let aantalGeordend = 0;
 
 //code afkomstig van w3schools
 
@@ -72,18 +73,27 @@ const skip = () => {
     document.getElementById("figSets").innerHTML = "";
     document.getElementById("blackList").innerHTML = "";
     document.getElementById("skip").innerHTML = "";
-    aantalFigs--;
-    tonen();
+    aantalSkips++;
+    if (aantalFigs > 0) {
+        aantalFigs--;
+        tonen();
+    } else {
+        aantalKiezenHtml.insertAdjacentHTML("beforeend", '<input type="number" name="aantal" id="aantalKiezen" min="1"> <button type="button" onclick=aantalKiezen()>Submit</button>');
+        document.getElementById("result").insertAdjacentHTML("beforeend", `Je hebt ${aantalGeordend} figs geordend en ${aantalSkips} figs geskipt.`);
+    }
 }
 
 const aantalKiezen = () => {
     aantalFigs = parseInt(document.getElementById("aantalKiezen").value) - 1;
     console.log(aantalFigs);
     document.getElementById("aantal").innerHTML = "";
+    document.getElementById("result").innerHTML = "";
     tonen();
 }
 
 const ordenen = (id) => {
+    aantalGeordend++;
+
     let ordenenHtml = document.getElementById(id);
     let setId = ordenenHtml.innerHTML;
 
@@ -105,11 +115,15 @@ const ordenen = (id) => {
     document.getElementById("miniFigs").innerHTML = "";
     document.getElementById("figSets").innerHTML = "";
     document.getElementById("blackList").innerHTML = "";
+    document.getElementById("skip").innerHTML = "";
     if (aantalFigs > 0) {
         aantalFigs--;
         tonen();
     } else {
         aantalKiezenHtml.insertAdjacentHTML("beforeend", '<input type="number" name="aantal" id="aantalKiezen" min="1"> <button type="button" onclick=aantalKiezen()>Submit</button>');
+        document.getElementById("result").insertAdjacentHTML("beforeend", `Je hebt ${aantalGeordend} figs geordend en ${aantalSkips} figs geskipt.`);
+        aantalGeordend = 0;
+        aantalSkips = 0;
     }
 }
 
