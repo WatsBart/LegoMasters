@@ -125,8 +125,47 @@ app.get('/databaseInsert', (req: any, res: any) => {
 
 app.get('/databaseChange', (req: any, res: any) => {
     let waarden = req.query;
+    let nieuweReden = waarden.reden;
+    let id = waarden.figId;
     console.log(waarden);
     console.log("databaseChange");
+    console.log(nieuweReden);
+    if(nieuweReden != ""){
+        console.log("ok");
+        let change = async () => {
+            await client.connect();
+            let data = await client.db(db).collection(collection).find({}).toArray();
+            let objectId = "";
+            data.forEach((fig: any) => {
+                if (fig.waarden.figId == id) {
+                    objectId = fig._id;
+                }
+            });
+            console.log("object id");
+            console.log(objectId);
+            if(objectId != ""){
+                let fig = await client.db(db).collection(collection).findOne({_id:objectId});
+                console.log(fig);
+                fig.waarden.reden = nieuweReden;
+                await client.db(db).collection(collection).updateOne({_id:objectId},{$set:{waarden:fig.waarden}});
+                data = await client.db(db).collection(collection).find({}).toArray();
+                blacklistData = [];
+                console.log(data);
+                for (let i = 0; i < data.length; i++) {
+                    if (data[i].waarden.reden === "") {
+
+                    }
+                    else {
+                        blacklistData.push(data[i]);
+                    }
+                }
+                res.render('blacklist', {
+                    data: blacklistData
+                });
+            }
+        }
+        change();
+    }
 })
 
 app.get('/databaseDelete', (req: any, res: any) => {
@@ -161,6 +200,7 @@ app.get('/databaseDelete', (req: any, res: any) => {
                     data: blacklistData
                 });
             }
+
         } catch (e) {
             console.error(e);
         } finally {
