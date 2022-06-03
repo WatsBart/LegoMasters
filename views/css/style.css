@@ -184,12 +184,12 @@ nav a{
 }
 /*bekijken*/
 
-table{
+#bekijkenTabel table,#blacklistTabel table{
     margin: auto;
     width: auto;
     border-collapse: collapse;
 }
-th{
+#bekijkenTabel th,#blacklistTabel th{
     border: 0.2rem solid darkred;
     padding: 1rem;
     text-transform: uppercase;
@@ -198,7 +198,7 @@ th{
     border-top-left-radius: 3rem; 
     border-top-right-radius: 3rem;
 }
-td{
+#bekijkenTabel td,#blacklistTabel td{
     border: 0.2rem solid darkred;
     padding: 2rem;
 }
