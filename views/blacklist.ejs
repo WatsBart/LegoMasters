@@ -28,7 +28,7 @@
             
             <% for (let i = 0; i < data.length; i++) {%>
                 <tr>
-                <td><img src="<%= data[i].waarden.figUrl %>" alt="" height="150"></td>
+                <td><img src="<%= data[i].waarden.figUrl %>" alt=""></td>
                 <td id="i<%= i %>"><%=data[i].waarden.figId%></td>
                 <td><p><%= data[i].waarden.reden %></p></td>
                 <td><input id="r<%= i %>" type="text"><button onclick=redenAanpassen(<%= i %>) id="a<%= i %>">Reden aanpassen</button></td>

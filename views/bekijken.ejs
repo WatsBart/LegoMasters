@@ -8,6 +8,7 @@
     <script src="scripts/java.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/reset.css">
+    <script src="scripts/blacklistJava.js" defer></script>
 </head>
 <body id="bekijken">
     <header>
@@ -23,15 +24,17 @@
                 <th scope="col">Code minifig</th>
                 <th scope="col">Afbeelding set</th>
                 <th scope="col">Code set</th>
+                <th scope="col">Delete</th>
             </tr>
             
             <% for (let i = 0; i < data.length; i++) {%>
             <%=data[i].setId;%>
-                <tr>
-                <td><img src="<%= data[i].waarden.figUrl %>" alt="" height="150"></td>
-                <td><%=data[i].waarden.figId%></td>
-                <td><img src="<%= data[i].waarden.setUrl %>" alt="" height="150"></td>
+            <tr>
+                <td><img src="<%= data[i].waarden.figUrl %>" alt=""></td>
+                <td id="i<%= i %>"><%=data[i].waarden.figId%></td>
+                <td><img src="<%= data[i].waarden.setUrl %>" alt=""></td>
                 <td><%=data[i].waarden.setId%></td>
+                <td><button id="v<%= i %>" onclick=verwijder(<%= i %>)>Verwijder</button></td>
             </tr>
             <% }; %>
         </table>

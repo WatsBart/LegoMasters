@@ -191,3 +191,57 @@ header img{
     border: 0.2rem solid darkred;
     padding: 2rem;
 }
+#bekijkenTabel td img{
+    height: 150px;
+}
+
+@media only screen and (max-width: 770px) {
+    /* stijlregels voor schermen > 320px en ≤ 720px breed */
+    #bekijken table{
+        margin: 0 auto;
+        width: 50rem;
+        border-collapse: collapse;
+    }
+    #bekijken th{
+        border: 0.1rem solid darkred;
+        padding: 0.5rem;
+        text-transform: uppercase;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 1rem;
+        border-top-left-radius: 2rem; 
+        border-top-right-radius: 2rem;
+        width: 1rem;
+    }
+    #bekijken td{
+        border: 0.1rem solid darkred;
+        padding: 1rem;
+    }
+    #bekijkenTabel td img{
+        height: 100px;
+    }
+}
+
+@media only screen and (max-width:320px) {
+    /* stijlregels voor schermen ≤ 320px breed */
+    #bekijken table{
+        margin: auto;
+        width: 30rem;
+        border-collapse: collapse;
+    }
+    #bekijken th{
+        border: 0.2rem solid darkred;
+        padding: 1rem;
+        text-transform: uppercase;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 1.5rem;
+        border-top-left-radius: 1rem; 
+        border-top-right-radius: 1rem;
+    }
+    #bekijken td{
+        border: 0.2rem solid darkred;
+        padding: 2rem;
+    }
+    #bekijkenTabel td img{
+        height: 50px;
+    }
+}

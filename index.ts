@@ -149,17 +149,15 @@ app.get('/databaseDelete', (req: any, res: any) => {
                 await client.db(db).collection(collection).deleteOne({ _id: figId });
                 data = await client.db(db).collection(collection).find({}).toArray();
                 blacklistData = [];
+                data2 =[];
                 for (let i = 0; i < data.length; i++) {
                     if (data[i].waarden.reden === "") {
-
+                        data2.push(data[i]);
                     }
                     else {
                         blacklistData.push(data[i]);
                     }
                 }
-                res.render('blacklist', {
-                    data: blacklistData
-                });
             }
         } catch (e) {
             console.error(e);
