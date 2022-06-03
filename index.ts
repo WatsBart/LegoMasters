@@ -6,7 +6,7 @@ const ejs = require('ejs');
 const axios = require('axios');
 
 app.set('view engine', 'ejs');
-app.set('port', 3000);
+app.set('port', (process.env.PORT || 5000));
 app.use(express.static('views'));
 app.use(express.json({ limit: '1mb' }));
 app.use(express.urlencoded({ extended: true }))
@@ -224,6 +224,4 @@ app.get('/figs', (req: any, res: any) => {
     apiCall();
 })
 
-app.listen(app.get('port'),
-    () => console.log('[server] http://localhost:' + app.get('port')));
-
+app.listen(app.get('port'), function() { });
