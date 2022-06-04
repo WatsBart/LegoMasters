@@ -162,10 +162,17 @@ header img{
 nav a{
     background-image: linear-gradient(rgba(152, 98, 5, 0.483),brown,rgba(152, 98, 5, 0.483));
     color:white;
-    padding: 1em;
+    padding: 1rem;
     text-decoration: none;
     font-weight: bold;
     border-radius: 25%;
+}
+
+#bnav{
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    gap: 2rem;
 }
 
 #legomasters section img{
@@ -253,7 +260,11 @@ nav a{
         text-align: center;
         font-size: 2rem;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
-        margin-left: -5rem;
+        margin-left: -6rem;
+    }
+
+    #home .titel{
+        margin-left: 0;
     }
     #home section img{
         height: 15rem;
@@ -294,6 +305,12 @@ nav a{
     .nav{
         display: flex;
         gap: 30%;
+    }
+    #bnav{
+        display: flex;
+        flex-direction: row;
+        flex-flow: wrap;
+        gap: 1.5rem;
     }
     
     #obb{
@@ -397,9 +414,12 @@ nav a{
     .titel{
         color: white;
         text-align: center;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         margin-left: -1rem;
+    }
+    #bekijken .titel, #blacklist .titel{
+        margin-left: 5rem;    
     }
     #home section img{
         height: 10rem;
@@ -440,6 +460,14 @@ nav a{
     .nav{
         display: flex;
         gap: 7%;
+    }
+
+    #bnav{
+        display: flex;
+        flex-direction: row;
+        flex-flow: wrap;
+        gap: 0.9rem;
+        font-size: x-small;
     }
     
     #obb{
