@@ -1,10 +1,10 @@
 * {
     box-sizing: border-box;
     font-family: Arial, Georgia, sans-serif;
-    
+
 }
 
-article{
+article {
     height: 30vh;
 }
 
@@ -13,47 +13,68 @@ body {
     margin: auto;
     display: grid;
     grid-template-areas:
-      'header'
-      'nav'
-      'main'  
-      'footer';
-      gap: 1rem;
-  }
-  
-  header {grid-area: header;}
-  nav {grid-area: nav;}
-  main {grid-area: main;}
-  footer {grid-area: footer;}
+        'header'
+        'nav'
+        'main'
+        'footer';
+    gap: 1rem;
+}
 
-#miniFigs{
+header {
+    grid-area: header;
+}
+
+nav {
+    grid-area: nav;
+}
+
+main {
+    grid-area: main;
+}
+
+footer {
+    grid-area: footer;
+}
+
+#miniFigs {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     margin: auto;
     gap: 0rem;
 }
-#miniFigs img, #figSets img{
+
+#miniFigs img,
+#figSets img {
     height: 10rem;
     width: 10rem;
 }
-#figSets{
+
+#figSets {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     margin: auto;
     gap: 0rem;
 }
-header{
+
+header {
     background-color: brown;
     border-bottom-left-radius: 50%;
     border-bottom-right-radius: 50%;
+    position: relative;
 }
 
-#home, #legomasters, #bekijken, #blacklist, #ordenen{
+#home,
+#legomasters,
+#bekijken,
+#blacklist,
+#ordenen {
     background-color: rgba(152, 98, 5, 0.483);
     margin: auto;
 }
-footer{
+
+footer {
     background-color: brown;
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
@@ -62,12 +83,13 @@ footer{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.titel{
+.titel {
     color: white;
     text-align: center;
     font-size: 2.5rem;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
 .deelnemen {
     color: white;
     font-size: 30px;
@@ -79,6 +101,7 @@ footer{
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
 }
+
 .overlay {
     position: absolute;
     top: 0;
@@ -96,11 +119,12 @@ footer{
 .container:hover .overlay {
     opacity: 1;
 }
-.container{
+
+.container {
     position: relative;
 }
 
-#home section img{
+#home section img {
     height: 15rem;
     border-radius: 5rem;
     border: 0.2rem dotted red;
@@ -109,6 +133,7 @@ footer{
     object-fit: fill;
     display: block;
 }
+
 #home section a {
     font-size: xx-small;
 }
@@ -120,37 +145,44 @@ footer{
     flex-wrap: wrap;
     margin-left: 10rem;
 }
-#home section h3{
+
+#home section h3 {
     text-decoration: underline;
     text-align: center;
     font-size: 1.3rem;
     color: black;
 }
 
-#home main,#legomasters main, #ordenen main{
+#home main,
+#legomasters main,
+#ordenen main {
     height: 45.6rem;
 }
 
-header img{
+header img {
     height: 80px;
     border-radius: 50%;
     padding: .5rem;
-}
-.nav{
-    display: flex;
-    gap: 30%;
+    position: absolute;
+    left: 1vw;
 }
 
-#obb{
+.nav {
+    display: flex;
+    justify-content: center;
+}
+
+#obb {
     display: flex;
     gap: 8rem;
     flex-direction: row;
     margin: 8rem;
     margin-left: 13rem;
 }
-#obb a{
+
+#obb a {
     color: white;
-    background-image: linear-gradient(rgba(152, 98, 5, 0.483),brown,rgba(152, 98, 5, 0.483));
+    background-image: linear-gradient(rgba(152, 98, 5, 0.483), brown, rgba(152, 98, 5, 0.483));
     padding-left: 6rem;
     padding-right: 6rem;
     padding-top: 6rem;
@@ -159,28 +191,28 @@ header img{
     font-size: large;
 }
 
-nav a{
-    background-image: linear-gradient(rgba(152, 98, 5, 0.483),brown,rgba(152, 98, 5, 0.483));
-    color:white;
+nav a {
+    background-image: linear-gradient(rgba(152, 98, 5, 0.483), brown, rgba(152, 98, 5, 0.483));
+    color: white;
     padding: 1rem;
     text-decoration: none;
     font-weight: bold;
     border-radius: 25%;
 }
 
-#bnav{
+#bnav {
     display: flex;
     flex-direction: row;
     flex-flow: wrap;
     gap: 2rem;
 }
 
-#legomasters section img{
+#legomasters section img {
     border-radius: 3rem;
     border: 0.2rem dotted red;
 }
 
-.naam{
+.naam {
     max-width: 5rem;
     text-align: justify;
     text-overflow: ellipsis;
@@ -189,6 +221,7 @@ nav a{
     margin: auto;
     color: black;
 }
+
 /*bekijken*/
 
 
@@ -220,22 +253,55 @@ nav a{
     height: 150px;
 }
 
-#ordenenTabel thead tr td{
+#ordenenTabel thead tr td {
     width: auto;
 }
-#ordenenTabel thead tr td p{
+
+#ordenenTabel thead tr td p {
     width: 100%;
     padding: 0;
     margin: 0;
 }
 
+@media only screen and (max-width: 1200px) {
+
+    #bekijkenTabel th,
+    #blacklistTabel th {
+        border: 0.2rem solid darkred;
+        padding: .75rem;
+        text-transform: uppercase;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 1rem;
+    }
+
+    #bekijkenTabel td,
+    #blacklistTabel td {
+        border: 0.2rem solid darkred;
+        padding: 1rem;
+    }
+
+    #bekijkenTabel td img {
+        height: 120px;
+    }
+
+    #ordenenTabel thead tr td {
+        width: auto;
+    }
+
+    #ordenenTabel thead tr td p {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+}
 
 @media only screen and (max-width: 770px) {
+
     /* stijlregels voor schermen > 320px en ≤ 770px breed */
     * {
         box-sizing: border-box;
         font-family: Arial, Georgia, sans-serif;
-        
+
     }
 
     body {
@@ -243,30 +309,31 @@ nav a{
         margin: auto;
         display: grid;
         grid-template-areas:
-          'header'
-          'nav'
-          'main'  
-          'footer';
-          gap: 1rem;
-      }
+            'header'
+            'nav'
+            'main'
+            'footer';
+        gap: 1rem;
+    }
 
-    #miniFigs img, #figSets img{
+    #miniFigs img,
+    #figSets img {
         height: 100px;
         width: 100px;
     }
-    
-    .titel{
+
+    .titel {
         color: white;
         text-align: center;
         font-size: 2rem;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
-        margin-left: -6rem;
     }
 
-    #home .titel{
+    #home .titel {
         margin-left: 0;
     }
-    #home section img{
+
+    #home section img {
         height: 15rem;
         border-radius: 5rem;
         border: 0.2rem dotted red;
@@ -275,7 +342,7 @@ nav a{
         object-fit: fill;
         display: block;
     }
-    
+
     #home section {
         display: flex;
         gap: 8rem;
@@ -283,46 +350,52 @@ nav a{
         flex-wrap: wrap;
         margin-left: 13rem;
     }
-    #home section h3{
+
+    #home section h3 {
         text-decoration: underline;
         text-align: center;
         font-size: 1.3rem;
         color: black;
     }
-    
-    #legomasters main, #ordenen main{
+
+    #legomasters main,
+    #ordenen main {
         height: 45.6rem;
     }
-    #home main{
+
+    #home main {
         height: 145rem;
     }
-    
-    header img{
+
+    header img {
         height: 80px;
         border-radius: 50%;
         padding: .5rem;
     }
-    .nav{
+
+    .nav {
         display: flex;
         gap: 30%;
     }
-    #bnav{
+
+    #bnav {
         display: flex;
         flex-direction: row;
         flex-flow: wrap;
         gap: 1.5rem;
     }
-    
-    #obb{
+
+    #obb {
         display: flex;
         gap: 3rem;
         flex-direction: column;
         margin: 0 auto;
         margin-left: 35%;
     }
-    #obb a{
+
+    #obb a {
         color: white;
-        background-image: linear-gradient(rgba(152, 98, 5, 0.483),brown,rgba(152, 98, 5, 0.483));
+        background-image: linear-gradient(rgba(152, 98, 5, 0.483), brown, rgba(152, 98, 5, 0.483));
         padding-left: 1rem;
         padding-right: 1rem;
         padding-top: 4rem;
@@ -332,22 +405,22 @@ nav a{
         font-size: medium;
         max-width: 15rem;
     }
-    
-    nav a{
-        background-image: linear-gradient(rgba(152, 98, 5, 0.483),brown,rgba(152, 98, 5, 0.483));
-        color:white;
+
+    nav a {
+        background-image: linear-gradient(rgba(152, 98, 5, 0.483), brown, rgba(152, 98, 5, 0.483));
+        color: white;
         padding: 1rem;
         text-decoration: none;
         font-weight: bold;
         border-radius: 25%;
     }
-    
-    #legomasters section img{
+
+    #legomasters section img {
         border-radius: 3rem;
         border: 0.2rem dotted red;
     }
-    
-    .naam{
+
+    .naam {
         max-width: 5rem;
         text-align: justify;
         text-overflow: ellipsis;
@@ -359,39 +432,41 @@ nav a{
 
     /*tabel*/
     #bekijkenTabel table,
-    #blacklistTabel table{
+    #blacklistTabel table {
         margin: 0 auto;
-        width: 100vw;
+        width: 95vw;
         border-collapse: collapse;
     }
+
     #bekijkenTabel th,
-    #blacklistTabel th{
+    #blacklistTabel th {
         border: 0.1rem solid darkred;
-        padding: 0.5rem;
+
         text-transform: uppercase;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         font-size: 1rem;
-        border-top-left-radius: 2rem; 
-        border-top-right-radius: 2rem;
         width: 1rem;
     }
+
     #bekijkenTabel td,
-    #blacklistTabel td{
+    #blacklistTabel td {
         border: 0.1rem solid darkred;
         padding: 1rem;
     }
+
     #bekijkenTabel td img,
-    #blacklistTabel td img{
+    #blacklistTabel td img {
         height: 100px;
     }
 }
 
 @media only screen and (max-width:320px) {
+
     /* stijlregels voor schermen ≤ 320px breed */
     * {
         box-sizing: border-box;
         font-family: Arial, Georgia, sans-serif;
-        
+
     }
 
     body {
@@ -399,29 +474,33 @@ nav a{
         margin: auto;
         display: grid;
         grid-template-areas:
-          'header'
-          'nav'
-          'main'  
-          'footer';
-          gap: 1rem;
-      }
+            'header'
+            'nav'
+            'main'
+            'footer';
+        gap: 1rem;
+    }
 
-    #miniFigs img, #figSets img{
+    #miniFigs img,
+    #figSets img {
         height: 50px;
         width: 50px;
     }
-    
-    .titel{
+
+    .titel {
         color: white;
         text-align: center;
         font-size: 1.3rem;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         margin-left: -1rem;
     }
-    #bekijken .titel, #blacklist .titel{
-        margin-left: 5rem;    
+
+    #bekijken .titel,
+    #blacklist .titel {
+        margin-left: 5rem;
     }
-    #home section img{
+
+    #home section img {
         height: 10rem;
         border-radius: 5rem;
         border: 0.2rem dotted red;
@@ -430,7 +509,7 @@ nav a{
         object-fit: fill;
         display: block;
     }
-    
+
     #home section {
         display: flex;
         gap: 8rem;
@@ -438,48 +517,53 @@ nav a{
         flex-wrap: wrap;
         margin-left: 1rem;
     }
-    #home section h3{
+
+    #home section h3 {
         text-decoration: underline;
         text-align: center;
         font-size: 1.3rem;
         color: black;
     }
-    
-    #legomasters main, #ordenen main{
+
+    #legomasters main,
+    #ordenen main {
         height: 45.6rem;
     }
-    #home main{
-        height: 145rem;
+
+    #home main {
+        height: 100%;
     }
-    
-    header img{
+
+    header img {
         height: 50px;
         border-radius: 50%;
         padding: .5rem;
     }
-    .nav{
+
+    .nav {
         display: flex;
         gap: 7%;
     }
 
-    #bnav{
+    #bnav {
         display: flex;
         flex-direction: row;
         flex-flow: wrap;
         gap: 0.9rem;
         font-size: x-small;
     }
-    
-    #obb{
+
+    #obb {
         display: flex;
         gap: 3rem;
         flex-direction: column;
         margin: 0 auto;
         margin-left: 15%;
     }
-    #obb a{
+
+    #obb a {
         color: white;
-        background-image: linear-gradient(rgba(152, 98, 5, 0.483),brown,rgba(152, 98, 5, 0.483));
+        background-image: linear-gradient(rgba(152, 98, 5, 0.483), brown, rgba(152, 98, 5, 0.483));
         padding-left: 1rem;
         padding-right: 1rem;
         padding-top: 4rem;
@@ -489,22 +573,22 @@ nav a{
         font-size: medium;
         max-width: 15rem;
     }
-    
-    nav a{
-        background-image: linear-gradient(rgba(152, 98, 5, 0.483),brown,rgba(152, 98, 5, 0.483));
-        color:white;
+
+    nav a {
+        background-image: linear-gradient(rgba(152, 98, 5, 0.483), brown, rgba(152, 98, 5, 0.483));
+        color: white;
         padding: 1rem;
         text-decoration: none;
         font-weight: bold;
         border-radius: 25%;
     }
-    
-    #legomasters section img{
+
+    #legomasters section img {
         border-radius: 3rem;
         border: 0.2rem dotted red;
     }
-    
-    .naam{
+
+    .naam {
         max-width: 5rem;
         text-align: justify;
         text-overflow: ellipsis;
@@ -516,29 +600,34 @@ nav a{
 
     /*tabel*/
     #bekijkenTabel table,
-    #blacklistTabel table{
+    #blacklistTabel table {
         margin: 0 auto;
-        width: 40rem;
+        width: 95vw;
         border-collapse: collapse;
     }
+
     #bekijkenTabel th,
-    #blacklistTabel th{
+    #blacklistTabel th {
         border: 0.1rem solid darkred;
-        padding: 0.5rem;
+        padding: 0;
         text-transform: uppercase;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        font-size: 1rem;
-        border-top-left-radius: 2rem; 
-        border-top-right-radius: 2rem;
-        width: 1rem;
+        font-size: .75rem;
+        width:auto;
     }
+
     #bekijkenTabel td,
-    #blacklistTabel td{
+    #blacklistTabel td {
         border: 0.1rem solid darkred;
-        padding: 1rem;
+        padding: 0;
     }
+
     #bekijkenTabel td img,
-    #blacklistTabel td img{
+    #blacklistTabel td img {
         height: 50px;
+    }
+
+    input{
+        width: 5rem;
     }
 }

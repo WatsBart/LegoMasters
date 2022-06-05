@@ -33,7 +33,7 @@
                 <td id="i<%= i %>"><%=data[i].waarden.figId%></td>
                 <td><p id="reden<%= i %>"><%= data[i].waarden.reden %></p></td>
                 <td><input id="r<%= i %>" type="text"><button onclick=redenAanpassen(<%= i %>) id="a<%= i %>">Reden aanpassen</button></td>
-                <td><button" onclick=verwijder(<%= i %>)>Verwijder</button></td>
+                <td><button onclick=verwijder(<%= i %>)>Verwijder</button></td>
             </tr>
             <% }; %>
         </table>
