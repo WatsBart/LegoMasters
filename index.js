@@ -1,5 +1,3 @@
-"use strict";
-//code afkomstig van het vak Webprogrammeren
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -36,6 +34,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+//code afkomstig van het vak Webprogrammeren
+var _this = this;
 var express = require('express');
 var app = express();
 var ejs = require('ejs');
@@ -53,7 +53,7 @@ var client = new MongoClient(uri, { useUnifiedTopology: true });
 var data = [];
 var data2 = [];
 var blacklistData = [];
-var Main = function () { return __awaiter(void 0, void 0, void 0, function () {
+var Main = function () { return __awaiter(_this, void 0, void 0, function () {
     var i, cursor, idList, e_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -69,7 +69,6 @@ var Main = function () { return __awaiter(void 0, void 0, void 0, function () {
                 return [4 /*yield*/, client.db('itproject').collection('yaba').find({}).toArray()];
             case 2:
                 data = _a.sent();
-                //console.log(data);
                 for (i = 0; i < data.length; i++) {
                     if (data[i].waarden.reden === "") {
                         data2.push(data[i]);
@@ -125,7 +124,7 @@ app.get('/blacklist', function (req, res) {
 });
 app.post('/ordenen', function (req, res) {
     var waarden = req.body;
-    var insert = function () { return __awaiter(void 0, void 0, void 0, function () {
+    var insert = function () { return __awaiter(_this, void 0, void 0, function () {
         var result, e_2;
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -156,7 +155,7 @@ app.post('/ordenen', function (req, res) {
 });
 app.get('/databaseInsert', function (req, res) {
     var waarden = req.query;
-    var insert = function () { return __awaiter(void 0, void 0, void 0, function () {
+    var insert = function () { return __awaiter(_this, void 0, void 0, function () {
         var result, e_3;
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -190,12 +189,8 @@ app.get('/databaseChange', function (req, res) {
     var waarden = req.query;
     var nieuweReden = waarden.reden;
     var id = waarden.figId;
-    console.log(waarden);
-    console.log("databaseChange");
-    console.log(nieuweReden);
     if (nieuweReden != "") {
-        console.log("ok");
-        var change = function () { return __awaiter(void 0, void 0, void 0, function () {
+        var change = function () { return __awaiter(_this, void 0, void 0, function () {
             var data, objectId, fig, i;
             return __generator(this, function (_a) {
                 switch (_a.label) {
@@ -243,10 +238,8 @@ app.get('/databaseChange', function (req, res) {
 });
 app.get('/databaseDelete', function (req, res) {
     var waarden = req.query;
-    console.log(waarden);
-    console.log("databaseDelete");
     var id = waarden.figId;
-    var insert = function () { return __awaiter(void 0, void 0, void 0, function () {
+    var insert = function () { return __awaiter(_this, void 0, void 0, function () {
         var figId_1, data_1, i, e_4;
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -301,7 +294,7 @@ app.get('/databaseDelete', function (req, res) {
 });
 app.get('/parts', function (req, res) {
     var index = req.query;
-    var apiCall = function () { return __awaiter(void 0, void 0, void 0, function () {
+    var apiCall = function () { return __awaiter(_this, void 0, void 0, function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -317,7 +310,7 @@ app.get('/parts', function (req, res) {
 });
 app.get('/figs', function (req, res) {
     var index = req.query;
-    var apiCall = function () { return __awaiter(void 0, void 0, void 0, function () {
+    var apiCall = function () { return __awaiter(_this, void 0, void 0, function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {

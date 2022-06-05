@@ -38,7 +38,6 @@ let Main = async () => {
         data2 = [];
         blacklistData = [];
         data = await client.db('itproject').collection('yaba').find({}).toArray();
-        //console.log(data);
         for (let i = 0; i < data.length; i++) {
             if (data[i].waarden.reden === "") {
                 data2.push(data[i]);
@@ -128,11 +127,7 @@ app.get('/databaseChange', (req: any, res: any) => {
     let waarden = req.query;
     let nieuweReden = waarden.reden;
     let id = waarden.figId;
-    console.log(waarden);
-    console.log("databaseChange");
-    console.log(nieuweReden);
     if(nieuweReden != ""){
-        console.log("ok");
         let change = async () => {
             await client.connect();
             let data = await client.db(db).collection(collection).find({}).toArray();
@@ -167,8 +162,6 @@ app.get('/databaseChange', (req: any, res: any) => {
 
 app.get('/databaseDelete', (req: any, res: any) => {
     let waarden = req.query;
-    console.log(waarden);
-    console.log("databaseDelete");
     let id = waarden.figId;
     let insert = async () => {
         try {
