@@ -3,15 +3,16 @@
     font-family: Arial, Georgia, sans-serif;
 
 }
-
+/*
 article {
     height: 30vh;
 }
-
+*/
 body {
     max-width: 80%;
     margin: auto;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     grid-template-areas:
         'header'
         'nav'
@@ -22,6 +23,11 @@ body {
 
 header {
     grid-area: header;
+    width: 80vw;
+    background-color: brown;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    position: relative;
 }
 
 nav {
@@ -34,6 +40,15 @@ main {
 
 footer {
     grid-area: footer;
+    bottom: 0;
+    width: 80vw;
+    background-color: brown;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    text-align: center;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: relative;
 }
 
 #miniFigs {
@@ -58,13 +73,6 @@ footer {
     gap: 0rem;
 }
 
-header {
-    background-color: brown;
-    border-bottom-left-radius: 50%;
-    border-bottom-right-radius: 50%;
-    position: relative;
-}
-
 #home,
 #legomasters,
 #bekijken,
@@ -72,15 +80,6 @@ header {
 #ordenen {
     background-color: rgba(152, 98, 5, 0.483);
     margin: auto;
-}
-
-footer {
-    background-color: brown;
-    border-top-left-radius: 50%;
-    border-top-right-radius: 50%;
-    text-align: center;
-    color: white;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .titel {
@@ -125,7 +124,6 @@ footer {
 }
 
 #home section img {
-    height: 15rem;
     border-radius: 5rem;
     border: 0.2rem dotted red;
     width: 250px;
@@ -140,10 +138,10 @@ footer {
 
 #home section {
     display: flex;
-    gap: 5rem;
+    gap: 2rem;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-left: 10rem;
+    justify-content: center;
 }
 
 #home section h3 {
@@ -152,13 +150,13 @@ footer {
     font-size: 1.3rem;
     color: black;
 }
-
+/*
 #home main,
 #legomasters main,
 #ordenen main {
     height: 45.6rem;
 }
-
+*/
 header img {
     height: 80px;
     border-radius: 50%;
@@ -174,18 +172,16 @@ header img {
 
 #obb {
     display: flex;
-    gap: 8rem;
+    gap: 2rem;
     flex-direction: row;
-    margin: 8rem;
-    margin-left: 13rem;
+    justify-content: center;
+    
 }
 
 #obb a {
     color: white;
     background-image: linear-gradient(rgba(152, 98, 5, 0.483), brown, rgba(152, 98, 5, 0.483));
-    padding-left: 6rem;
-    padding-right: 6rem;
-    padding-top: 6rem;
+    padding: 6vw;
     text-align: center;
     border-radius: 50%;
     font-size: large;
@@ -205,6 +201,7 @@ nav a {
     flex-direction: row;
     flex-flow: wrap;
     gap: 2rem;
+    justify-content: center;
 }
 
 #legomasters section img {
@@ -263,6 +260,15 @@ nav a {
     margin: 0;
 }
 
+#legomasters footer,#ordenen footer{
+    position: absolute;
+    bottom: 0;
+}
+
+#ordenen main{
+    margin-left: 2rem;
+}
+
 @media only screen and (max-width: 1200px) {
 
     #bekijkenTabel th,
@@ -303,17 +309,12 @@ nav a {
         font-family: Arial, Georgia, sans-serif;
 
     }
+    header,footer{
+        width: 100%;
+    }
 
     body {
         max-width: 100%;
-        margin: auto;
-        display: grid;
-        grid-template-areas:
-            'header'
-            'nav'
-            'main'
-            'footer';
-        gap: 1rem;
     }
 
     #miniFigs img,
@@ -345,10 +346,9 @@ nav a {
 
     #home section {
         display: flex;
-        gap: 8rem;
+        
         flex-direction: row;
         flex-wrap: wrap;
-        margin-left: 13rem;
     }
 
     #home section h3 {
@@ -357,16 +357,16 @@ nav a {
         font-size: 1.3rem;
         color: black;
     }
-
+/*
     #legomasters main,
     #ordenen main {
         height: 45.6rem;
     }
-
+/*
     #home main {
         height: 145rem;
     }
-
+*/
     header img {
         height: 80px;
         border-radius: 50%;
@@ -458,6 +458,17 @@ nav a {
     #blacklistTabel td img {
         height: 100px;
     }
+
+    #legomasters footer{
+        position: relative;
+    }
+}
+
+@media only screen and (max-width:560px) {
+    .nav img{
+        height: 0;
+        width: 0;
+    }
 }
 
 @media only screen and (max-width:320px) {
@@ -467,18 +478,6 @@ nav a {
         box-sizing: border-box;
         font-family: Arial, Georgia, sans-serif;
 
-    }
-
-    body {
-        max-width: 100%;
-        margin: auto;
-        display: grid;
-        grid-template-areas:
-            'header'
-            'nav'
-            'main'
-            'footer';
-        gap: 1rem;
     }
 
     #miniFigs img,
@@ -501,7 +500,6 @@ nav a {
     }
 
     #home section img {
-        height: 10rem;
         border-radius: 5rem;
         border: 0.2rem dotted red;
         width: 200px;
@@ -512,7 +510,7 @@ nav a {
 
     #home section {
         display: flex;
-        gap: 8rem;
+        
         flex-direction: row;
         flex-wrap: wrap;
         margin-left: 1rem;
@@ -525,17 +523,14 @@ nav a {
         color: black;
     }
 
-    #legomasters main,
-    #ordenen main {
-        height: 45.6rem;
-    }
-
-    #home main {
-        height: 100%;
+    #legomasters main{
+        display: flex;
+        justify-content: center;
+        padding: 0;
     }
 
     header img {
-        height: 50px;
+        height: 0px;
         border-radius: 50%;
         padding: .5rem;
     }
@@ -558,14 +553,13 @@ nav a {
         gap: 3rem;
         flex-direction: column;
         margin: 0 auto;
-        margin-left: 15%;
     }
 
     #obb a {
         color: white;
         background-image: linear-gradient(rgba(152, 98, 5, 0.483), brown, rgba(152, 98, 5, 0.483));
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding-left: 4rem;
+        padding-right: 4rem;
         padding-top: 4rem;
         padding-bottom: 4rem;
         text-align: center;
